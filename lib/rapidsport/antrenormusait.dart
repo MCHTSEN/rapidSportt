@@ -14,7 +14,7 @@ class AntrenorMusait extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenormusaituWV (214:2198)
-        padding: EdgeInsets.fromLTRB(10*fem, 20*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 10*fem, 0*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -35,6 +35,7 @@ class AntrenorMusait extends StatelessWidget {
                   'Inter',
                   fontSize: 25*ffem,
                   fontWeight: FontWeight.w400,
+                  decoration: TextDecoration.none,
                   height: 2*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
                   color: const Color(0xff000000),
@@ -67,7 +68,7 @@ class AntrenorMusait extends StatelessWidget {
                     children: [
                       Container(
                         // jA5 (214:2204)
-                        margin: EdgeInsets.fromLTRB(8*fem, 0*fem, 0*fem, 0*fem),
+                        margin: EdgeInsets.fromLTRB(8*fem, 10*fem, 0*fem, 0*fem),
                         child: Text(
                           '1',
                           textAlign: TextAlign.center,
@@ -76,6 +77,7 @@ class AntrenorMusait extends StatelessWidget {
                             fontSize: 50*ffem,
                             fontWeight: FontWeight.w400,
                             height: 1*ffem/fem,
+                            decoration: TextDecoration.none,
                             letterSpacing: -0.4099999964*fem,
                             color: const Color(0xff000000),
                           ),
@@ -95,6 +97,7 @@ class AntrenorMusait extends StatelessWidget {
                               fontSize: 28*ffem,
                               fontWeight: FontWeight.w400,
                               height: 1.7857142857*ffem/fem,
+                              decoration: TextDecoration.none,
                               letterSpacing: -0.4099999964*fem,
                               color: const Color(0xff000000),
                             ),
@@ -118,6 +121,7 @@ class AntrenorMusait extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.4285714286*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),
@@ -137,6 +141,7 @@ class AntrenorMusait extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.4285714286*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),
@@ -164,6 +169,7 @@ class AntrenorMusait extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                       height: 1*ffem/fem,
                       color: const Color(0xffffffff),
+                      decoration: TextDecoration.none,
                     ),
                   ),
                 ),

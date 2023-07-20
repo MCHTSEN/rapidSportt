@@ -94,7 +94,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                     children: [
                       Container(
                         // vuesaxlineararrowleft2Kw (12:1222)
-                        margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 190*fem),
+                        margin: EdgeInsets.fromLTRB(0*fem, 20*fem, 0*fem, 190*fem),
                         child: TextButton(
                           onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => const Anasayfa())
                   );},
@@ -209,6 +209,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.1428571429*ffem/fem,
                                                   letterSpacing: -0.4099999964*fem,
+                                                  decoration: TextDecoration.none,
                                                   color: const Color(0xff50555c),
                                                 ),
                                               ),
@@ -235,6 +236,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                             'Inter',
                                             fontSize: 10*ffem,
                                             fontWeight: FontWeight.w400,
+                                            decoration: TextDecoration.none,
                                             height: 1.6*ffem/fem,
                                             letterSpacing: -0.4099999964*fem,
                                             color: const Color(0xff50555c),
@@ -327,6 +329,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                                   fontSize: 14*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.1428571429*ffem/fem,
+                                                  decoration: TextDecoration.none,
                                                   letterSpacing: -0.4099999964*fem,
                                                   color: const Color(0xff50555c),
                                                 ),
@@ -354,6 +357,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                             'Inter',
                                             fontSize: 10*ffem,
                                             fontWeight: FontWeight.w400,
+                                            decoration: TextDecoration.none,
                                             height: 1.6*ffem/fem,
                                             letterSpacing: -0.4099999964*fem,
                                             color: const Color(0xff50555c),
@@ -445,6 +449,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                                   fontSize: 14*ffem,
                                                   fontWeight: FontWeight.w400,
                                                   height: 1.1428571429*ffem/fem,
+                                                  decoration: TextDecoration.none,
                                                   letterSpacing: -0.4099999964*fem,
                                                   color: const Color(0xff50555c),
                                                 ),
@@ -473,6 +478,7 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                                             fontSize: 10*ffem,
                                             fontWeight: FontWeight.w400,
                                             height: 1.6*ffem/fem,
+                                            decoration: TextDecoration.none,
                                             letterSpacing: -0.4099999964*fem,
                                             color: const Color(0xff50555c),
                                           ),

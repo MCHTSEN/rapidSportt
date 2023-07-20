@@ -15,7 +15,7 @@ class BeslenmeKalori extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // beslenmekaloriBsb (53:1659)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -57,6 +57,7 @@ class BeslenmeKalori extends StatelessWidget {
                   'Arial',
                   fontSize: 30*ffem,
                   fontWeight: FontWeight.w400,
+                  decoration: TextDecoration.none,
                   height: 1.4*ffem/fem,
                   letterSpacing: -1.5*fem,
                   color: const Color(0xff000000),
@@ -67,7 +68,7 @@ class BeslenmeKalori extends StatelessWidget {
               // autogrouprwmfhWV (JPuYJqMTxZVCqXe1i1rwmF)
               margin: EdgeInsets.fromLTRB(86*fem, 0*fem, 86*fem, 24*fem),
               width: double.infinity,
-              height: 170*fem,
+              height: 180*fem,
               decoration: const BoxDecoration (
                 image: DecorationImage (
                   fit: BoxFit.cover,
@@ -85,6 +86,7 @@ class BeslenmeKalori extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     height: 0.45*ffem/fem,
                     color: const Color(0xff000000),
+                    decoration: TextDecoration.none,
                   ),
                 ),
               ),
@@ -104,6 +106,7 @@ class BeslenmeKalori extends StatelessWidget {
                   style: safeGoogleFont (
                     'Arial',
                     fontSize: 18*ffem,
+                    decoration: TextDecoration.none,
                     fontWeight: FontWeight.w400,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
@@ -127,6 +130,7 @@ class BeslenmeKalori extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -149,6 +153,7 @@ class BeslenmeKalori extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -177,6 +182,7 @@ class BeslenmeKalori extends StatelessWidget {
                       style: safeGoogleFont (
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),

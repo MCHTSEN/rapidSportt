@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/rapidsport/fiyatlandirma.dart';
+import 'package:myapp/rapidsport/odemeyontemi.dart';
 import 'package:myapp/utils.dart';
 
 class PaketSecimOnaylama extends StatelessWidget {
@@ -33,6 +35,7 @@ class PaketSecimOnaylama extends StatelessWidget {
                 style: safeGoogleFont (
                   'Inter',
                   fontSize: 36*ffem,
+                  decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
@@ -56,6 +59,7 @@ class PaketSecimOnaylama extends StatelessWidget {
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
                   color: const Color(0xff000000),
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -70,6 +74,7 @@ class PaketSecimOnaylama extends StatelessWidget {
                   fontSize: 15*ffem,
                   fontWeight: FontWeight.w400,
                   height: 3.3333333333*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -0.4099999964*fem,
                   color: const Color(0xff000000),
                 ),
@@ -79,7 +84,8 @@ class PaketSecimOnaylama extends StatelessWidget {
               // frame37RXT (33:1407)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 21*fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const OdemeYontemi())
+                  );},
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -98,6 +104,7 @@ class PaketSecimOnaylama extends StatelessWidget {
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -107,7 +114,10 @@ class PaketSecimOnaylama extends StatelessWidget {
             ),
             TextButton(
               // frame37Vvd (33:1410)
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Fiyatlandirma())
+                  );
+              },
               style: TextButton.styleFrom (
                 padding: EdgeInsets.zero,
               ),
@@ -124,6 +134,7 @@ class PaketSecimOnaylama extends StatelessWidget {
                     style: safeGoogleFont (
                       'Aksara Bali Galang',
                       fontSize: 18*ffem,
+                      decoration: TextDecoration.none,
                       fontWeight: FontWeight.w400,
                       height: 1*ffem/fem,
                       color: const Color(0xffffffff),

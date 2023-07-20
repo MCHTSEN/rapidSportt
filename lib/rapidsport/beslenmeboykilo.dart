@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/rapidsport/anasayfa.dart';
 import 'package:myapp/rapidsport/beslenmefiziksel.dart';
 import 'package:myapp/rapidsport/beslenmehedef.dart';
 import 'package:myapp/utils.dart';
@@ -16,7 +15,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // beslenmeboykilocz1 (53:1388)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -56,6 +55,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: safeGoogleFont (
                   'Arial',
+                  decoration: TextDecoration.none,
                   fontSize: 36*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.1666666667*ffem/fem,
@@ -82,6 +82,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
                   height: 1.3529411765*ffem/fem,
                   letterSpacing: -0.17*fem,
                   color: const Color(0xffb3bfcb),
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -96,6 +97,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
                   fontSize: 36*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.1666666667*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -1.8*fem,
                   color: const Color(0xff000000),
                 ),
@@ -117,6 +119,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
                   fontSize: 17*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.3529411765*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -0.17*fem,
                   color: const Color(0xffb3bfcb),
                 ),
@@ -145,6 +148,7 @@ class BeslenmeBoyKilo extends StatelessWidget {
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),
                       ),

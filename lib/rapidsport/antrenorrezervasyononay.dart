@@ -14,7 +14,7 @@ class AntrenorRezervasyonOnay extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenorrezervasyononayYJ1 (214:2257)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem,1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem,1*fem, 1*fem),
         width: double.infinity,
         height: 812*fem,
         decoration: const BoxDecoration (
@@ -57,9 +57,10 @@ class AntrenorRezervasyonOnay extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: safeGoogleFont (
                     'Inter',
-                    fontSize: 34*ffem,
+                    fontSize: 33*ffem,
                     fontWeight: FontWeight.w400,
                     height: 1.4705882353*ffem/fem,
+                    decoration: TextDecoration.none,
                     letterSpacing: -0.4099999964*fem,
                     color: const Color(0xff000000),
                   ),
@@ -90,6 +91,7 @@ class AntrenorRezervasyonOnay extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     height: 1.4705882353*ffem/fem,
                     letterSpacing: -0.4099999964*fem,
+                    decoration: TextDecoration.none,
                     color: const Color(0xff000000),
                   ),
                 ),

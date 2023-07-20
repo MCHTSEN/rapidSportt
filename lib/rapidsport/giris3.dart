@@ -54,6 +54,7 @@ class Giris3 extends StatelessWidget {
                         'Arial',
                         fontSize: 28*ffem,
                         fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
                         height: 1.2142857143*ffem/fem,
                         letterSpacing: 0.3600000143*fem,
                         color: const Color(0xff000000),
@@ -72,6 +73,7 @@ class Giris3 extends StatelessWidget {
                       style: safeGoogleFont (
                         'Arial',
                         fontSize: 17*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1.2941176471*ffem/fem,
                         letterSpacing: -0.4099999964*fem,
@@ -147,6 +149,7 @@ class Giris3 extends StatelessWidget {
                       fontSize: 17*ffem,
                       fontWeight: FontWeight.w400,
                       height: 1.2941176471*ffem/fem,
+                      decoration: TextDecoration.none,
                       letterSpacing: -0.4099999964*fem,
                       color: const Color(0xffffffff),
                     ),

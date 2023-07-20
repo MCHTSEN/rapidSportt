@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/rapidsport/antrenmanoneri.dart';
+import 'package:myapp/rapidsport/antrenmantur.dart';
 import 'package:myapp/utils.dart';
 
 class AntrenmanSalon extends StatelessWidget {
@@ -14,7 +15,7 @@ class AntrenmanSalon extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenmansalonvJ9 (53:2877)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -27,7 +28,10 @@ class AntrenmanSalon extends StatelessWidget {
               // vuesaxlineararrowleftNA9 (53:2892)
               margin: EdgeInsets.fromLTRB(3*fem, 0*fem, 0*fem, 101*fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AntrenmanTur())
+                  );
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -44,10 +48,10 @@ class AntrenmanSalon extends StatelessWidget {
             ),
             Container(
               // sporsalonunagidiyormusunuzw6m (53:2878)
-              margin: EdgeInsets.fromLTRB(30*fem, 0*fem, 0*fem, 20*fem),
+              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 20*fem),
               width: double.infinity,
               constraints: BoxConstraints (
-                maxWidth: 269*fem,
+                maxWidth: 500*fem,
               ),
               child: Text(
                 'Spor salonuna gidiyor musunuz?',
@@ -58,6 +62,7 @@ class AntrenmanSalon extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.1666666667*ffem/fem,
                   letterSpacing: -1.8*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),
@@ -86,6 +91,7 @@ class AntrenmanSalon extends StatelessWidget {
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -113,6 +119,7 @@ class AntrenmanSalon extends StatelessWidget {
                       'Aksara Bali Galang',
                       fontSize: 18*ffem,
                       fontWeight: FontWeight.w400,
+                      decoration: TextDecoration.none,
                       height: 1*ffem/fem,
                       color: const Color(0xffffffff),
                     ),

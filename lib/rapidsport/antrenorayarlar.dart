@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/rapidsport/antrenoranasayfa.dart';
+import 'package:myapp/rapidsport/girisyap.dart';
 import 'package:myapp/utils.dart';
 
 class AntrenorAyarlar extends StatelessWidget {
@@ -14,7 +15,7 @@ class AntrenorAyarlar extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenorayarlarZZX (214:2225)
-        padding: EdgeInsets.fromLTRB(0*fem, 15*fem, 0*fem, 0*fem),
+        padding: EdgeInsets.fromLTRB(0*fem, 70*fem, 0*fem, 0*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -99,6 +100,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                     'Inter',
                                     fontSize: 16*ffem,
                                     fontWeight: FontWeight.w700,
+                                    decoration: TextDecoration.none,
                                     height: 1.2125*ffem/fem,
                                     color: const Color(0xff000000),
                                   ),
@@ -144,6 +146,7 @@ class AntrenorAyarlar extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                             height: 1.2125*ffem/fem,
                             color: const Color(0xff000000),
+                            decoration: TextDecoration.none,
                           ),
                         ),
                       ),
@@ -180,6 +183,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                                 height: 1.2125*ffem/fem,
                                 color: const Color(0xff000000),
+                                decoration: TextDecoration.none,
                               ),
                             ),
                           ),
@@ -192,6 +196,7 @@ class AntrenorAyarlar extends StatelessWidget {
                               fontWeight: FontWeight.w400,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),
+                              decoration: TextDecoration.none,
                             ),
                           ),
                         ],
@@ -229,6 +234,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                 fontWeight: FontWeight.w700,
                                 height: 1.2125*ffem/fem,
                                 color: const Color(0xff000000),
+                                decoration: TextDecoration.none,
                               ),
                             ),
                           ),
@@ -243,6 +249,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                   height: 1.2125*ffem/fem,
                                   color: const Color(0xff000000),
+                                  decoration: TextDecoration.none,
                                 ),
                                 children: [
                                   const TextSpan(
@@ -256,6 +263,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                       fontWeight: FontWeight.w400,
                                       height: 1.2125*ffem/fem,
                                       color: const Color(0xff000000),
+                                      decoration: TextDecoration.none,
                                     ),
                                   ),
                                 ],
@@ -314,6 +322,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                           fontWeight: FontWeight.w700,
                                           height: 1.2125*ffem/fem,
                                           color: const Color(0xff000000),
+                                          decoration: TextDecoration.none,
                                         ),
                                       ),
                                     ),
@@ -333,6 +342,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                 fontWeight: FontWeight.w400,
                                 height: 1.2125*ffem/fem,
                                 color: const Color(0xff000000),
+                                decoration: TextDecoration.none,
                               ),
                             ),
                           ),
@@ -408,6 +418,7 @@ class AntrenorAyarlar extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           height: 1.2125*ffem/fem,
                           color: const Color(0xff000000),
+                          decoration: TextDecoration.none,
                         ),
                       ),
                     ),
@@ -432,6 +443,7 @@ class AntrenorAyarlar extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           height: 1.2125*ffem/fem,
                           color: const Color(0xff000000),
+                          decoration: TextDecoration.none,
                         ),
                       ),
                     ),
@@ -468,7 +480,7 @@ class AntrenorAyarlar extends StatelessWidget {
                             // kiPf (214:2249)
                             margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 20*fem, 3*fem),
                             child: TextButton(
-                              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const AntrenorAnasayfa())
+                              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const GirisYap())
                   );},
                               style: TextButton.styleFrom (
                                 padding: EdgeInsets.zero,
@@ -481,6 +493,7 @@ class AntrenorAyarlar extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                   height: 1.2125*ffem/fem,
                                   color: const Color(0xff000000),
+                                  decoration: TextDecoration.none,
                                 ),
                               ),
                             ),

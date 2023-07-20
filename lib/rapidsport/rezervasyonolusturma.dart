@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/rapidsport/dersrezerveet.dart';
 import 'package:myapp/rapidsport/rezervasyononay.dart';
 import 'package:myapp/utils.dart';
 
@@ -14,7 +15,7 @@ class RezervasyonOlusturma extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // rezervasyonolusturmaPW5 (32:1479)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -27,7 +28,10 @@ class RezervasyonOlusturma extends StatelessWidget {
               // vuesaxlineararrowlefth9P (32:1541)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 312*fem, 18*fem),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DersRezerveEt())
+                  );
+                },
                 style: TextButton.styleFrom (
                   padding: EdgeInsets.zero,
                 ),
@@ -91,6 +95,7 @@ class RezervasyonOlusturma extends StatelessWidget {
                                         fontSize: 30*ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.4*ffem/fem,
+                                        decoration: TextDecoration.none,
                                         letterSpacing: -1.5*fem,
                                         color: const Color(0xff292d32),
                                       ),
@@ -114,6 +119,7 @@ class RezervasyonOlusturma extends StatelessWidget {
                                         fontSize: 10*ffem,
                                         fontWeight: FontWeight.w400,
                                         height: 1.6*ffem/fem,
+                                        decoration: TextDecoration.none,
                                         letterSpacing: -0.4099999964*fem,
                                         color: const Color(0xff50555c),
                                       ),
@@ -155,6 +161,7 @@ class RezervasyonOlusturma extends StatelessWidget {
                       fontSize: 25*ffem,
                       fontWeight: FontWeight.w600,
                       height: 1.4*ffem/fem,
+                      decoration: TextDecoration.none,
                       color: const Color(0xff303030),
                     ),
                   ),
@@ -168,6 +175,7 @@ class RezervasyonOlusturma extends StatelessWidget {
                         'Poppins',
                         fontSize: 14*ffem,
                         fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
                         height: 1.4000000272*ffem/fem,
                         color: const Color(0xff303030),
                       ),
@@ -1680,6 +1688,7 @@ class RezervasyonOlusturma extends StatelessWidget {
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),
                       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/rapidsport/anasayfa.dart';
 import 'package:myapp/rapidsport/beslenmeboykilo.dart';
 import 'package:myapp/rapidsport/beslenmeprogrami.dart';
 import 'package:myapp/utils.dart';
@@ -16,7 +15,7 @@ class BeslenmeHedef extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // beslenmehedefmbT (53:1329)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -57,6 +56,7 @@ class BeslenmeHedef extends StatelessWidget {
                   fontSize: 28*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.5*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -1.4*fem,
                   color: const Color(0xff000000),
                 ),
@@ -86,6 +86,7 @@ class BeslenmeHedef extends StatelessWidget {
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xffffffff),
                       ),
                     ),
@@ -115,6 +116,7 @@ class BeslenmeHedef extends StatelessWidget {
                       style: safeGoogleFont (
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),
@@ -144,6 +146,7 @@ class BeslenmeHedef extends StatelessWidget {
                     style: safeGoogleFont (
                       'Aksara Bali Galang',
                       fontSize: 18*ffem,
+                      decoration: TextDecoration.none,
                       fontWeight: FontWeight.w400,
                       height: 1*ffem/fem,
                       color: const Color(0xffffffff),

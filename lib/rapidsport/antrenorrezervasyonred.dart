@@ -14,7 +14,7 @@ class AntrenorRezervasyonRed extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenorrezervasyonred9Rw (214:2292)
-        padding: EdgeInsets.fromLTRB(0*fem, 48*fem, 0*fem, 48*fem),
+        padding: EdgeInsets.fromLTRB(0*fem, 70*fem, 0*fem, 48*fem),
         width: double.infinity,
         height: 812*fem,
         decoration: const BoxDecoration (
@@ -60,6 +60,7 @@ class AntrenorRezervasyonRed extends StatelessWidget {
                     'Inter',
                     fontSize: 34*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1.4705882353*ffem/fem,
                     letterSpacing: -0.4099999964*fem,
                     color: const Color(0xff000000),
@@ -91,6 +92,7 @@ class AntrenorRezervasyonRed extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     height: 1.4705882353*ffem/fem,
                     letterSpacing: -0.4099999964*fem,
+                    decoration: TextDecoration.none,
                     color: const Color(0xff000000),
                   ),
                 ),

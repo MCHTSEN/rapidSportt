@@ -16,7 +16,7 @@ class AntrenorRezerveIstek extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenorrezerveistekra1 (214:2216)
-        padding: EdgeInsets.fromLTRB(10*fem, 20*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -47,15 +47,16 @@ class AntrenorRezerveIstek extends StatelessWidget {
               // mayis09001000tenisGn9 (214:2217)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 6*fem),
               width: double.infinity,
-              constraints: BoxConstraints (
-                maxWidth: 203*fem,
-              ),
+              // constraints: BoxConstraints (
+              //   maxWidth: 100*fem,
+              // ),
               child: Text(
                 '15 MAYIS\n09.00-10.00\nTENİS',
                 textAlign: TextAlign.center,
                 style: safeGoogleFont (
                   'Inter',
                   fontSize: 36*ffem,
+                  decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
@@ -67,9 +68,9 @@ class AntrenorRezerveIstek extends StatelessWidget {
               // antrenmanrezervasyonunuonaylyo (214:2224)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 44*fem),
               width: double.infinity,
-              constraints: BoxConstraints (
-                maxWidth: 302*fem,
-              ),
+              // constraints: BoxConstraints (
+              //   maxWidth: 302*fem,
+              // ),
               child: Text(
                 'Antrenman rezervasyonunu onaylıyor musunuz?',
                 textAlign: TextAlign.center,
@@ -79,6 +80,7 @@ class AntrenorRezerveIstek extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.6666666667*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),
@@ -108,6 +110,7 @@ class AntrenorRezerveIstek extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                   ),
@@ -136,6 +139,7 @@ class AntrenorRezerveIstek extends StatelessWidget {
                       fontSize: 18*ffem,
                       fontWeight: FontWeight.w400,
                       height: 1*ffem/fem,
+                      decoration: TextDecoration.none,
                       color: const Color(0xffffffff),
                     ),
                   ),

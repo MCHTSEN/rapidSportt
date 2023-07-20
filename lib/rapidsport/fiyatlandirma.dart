@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/rapidsport/ayarlarkullanici.dart';
-import 'package:myapp/rapidsport/odemeyontemi.dart';
+import 'package:myapp/rapidsport/paketsecimonaylama.dart';
 import 'package:myapp/utils.dart';
 
 class Fiyatlandirma extends StatelessWidget {
@@ -37,6 +37,7 @@ class Fiyatlandirma extends StatelessWidget {
                       'Inter',
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
                       height: 1.2125*ffem/fem,
                       color: const Color(0xff000000),
                     ),
@@ -58,6 +59,7 @@ class Fiyatlandirma extends StatelessWidget {
                       'Inter',
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
                       height: 1.2125*ffem/fem,
                       color: const Color(0xff000000),
                     ),
@@ -78,6 +80,7 @@ class Fiyatlandirma extends StatelessWidget {
                     style: safeGoogleFont (
                       'Inter',
                       fontSize: 16*ffem,
+                      decoration: TextDecoration.none,
                       fontWeight: FontWeight.w700,
                       height: 1.2125*ffem/fem,
                       color: const Color(0xff000000),
@@ -124,6 +127,7 @@ class Fiyatlandirma extends StatelessWidget {
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xff000000),
                       ),
                     ),
@@ -202,6 +206,7 @@ class Fiyatlandirma extends StatelessWidget {
                               'Inter',
                               fontSize: 16*ffem,
                               fontWeight: FontWeight.w700,
+                              decoration: TextDecoration.none,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),
                             ),
@@ -223,6 +228,7 @@ class Fiyatlandirma extends StatelessWidget {
                             style: safeGoogleFont (
                               'Inter',
                               fontSize: 16*ffem,
+                              decoration: TextDecoration.none,
                               fontWeight: FontWeight.w700,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),
@@ -373,6 +379,7 @@ class Fiyatlandirma extends StatelessWidget {
                             textAlign: TextAlign.center,
                             style: safeGoogleFont (
                               'Inter',
+                              decoration: TextDecoration.none,
                               fontSize: 16*ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2125*ffem/fem,
@@ -397,6 +404,7 @@ class Fiyatlandirma extends StatelessWidget {
                               fontSize: 16*ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2125*ffem/fem,
+                              decoration: TextDecoration.none,
                               color: const Color(0xff000000),
                             ),
                           ),
@@ -499,7 +507,7 @@ class Fiyatlandirma extends StatelessWidget {
                           width: 331*fem,
                           height: 26*fem,
                           child: TextButton(
-                            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const OdemeYontemi())
+                            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const PaketSecimOnaylama())
                   );},
                             style: TextButton.styleFrom (
                               padding: EdgeInsets.zero,
@@ -552,6 +560,7 @@ class Fiyatlandirma extends StatelessWidget {
                             style: safeGoogleFont (
                               'Inter',
                               fontSize: 16*ffem,
+                              decoration: TextDecoration.none,
                               fontWeight: FontWeight.w700,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),
@@ -574,6 +583,7 @@ class Fiyatlandirma extends StatelessWidget {
                             style: safeGoogleFont (
                               'Inter',
                               fontSize: 16*ffem,
+                              decoration: TextDecoration.none,
                               fontWeight: FontWeight.w700,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),

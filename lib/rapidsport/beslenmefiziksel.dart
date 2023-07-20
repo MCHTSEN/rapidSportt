@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/rapidsport/anasayfa.dart';
 import 'package:myapp/rapidsport/beslenmeboykilo.dart';
 import 'package:myapp/rapidsport/beslenmevegan.dart';
 import 'package:myapp/utils.dart';
@@ -16,7 +15,7 @@ class BeslenmeFiziksel extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // beslenmefizikselNVs (53:1451)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -59,6 +58,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                   fontSize: 30*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.4*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -1.5*fem,
                   color: const Color(0xff000000),
                 ),
@@ -79,6 +79,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                   style: safeGoogleFont (
                     'Arial',
                     fontSize: 18*ffem,
+                    decoration: TextDecoration.none,
                     fontWeight: FontWeight.w400,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
@@ -102,6 +103,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -123,6 +125,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                   style: safeGoogleFont (
                     'Arial',
                     fontSize: 18*ffem,
+                    decoration: TextDecoration.none,
                     fontWeight: FontWeight.w400,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
@@ -147,6 +150,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
                     height: 1*ffem/fem,
+                    decoration: TextDecoration.none,
                     color: const Color(0xff000000),
                   ),
                 ),
@@ -174,6 +178,7 @@ class BeslenmeFiziksel extends StatelessWidget {
                       style: safeGoogleFont (
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),

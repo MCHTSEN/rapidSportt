@@ -15,7 +15,7 @@ class AntrenmanProgrami extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenmanprogramiDU9 (53:2398)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -56,6 +56,7 @@ class AntrenmanProgrami extends StatelessWidget {
                   fontSize: 28*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.5*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -1.4*fem,
                   color: const Color(0xff292d32),
                 ),
@@ -78,6 +79,7 @@ class AntrenmanProgrami extends StatelessWidget {
                   height: 1.5*ffem/fem,
                   letterSpacing: -1.4*fem,
                   color: const Color(0xff000000),
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -103,6 +105,7 @@ class AntrenmanProgrami extends StatelessWidget {
                       style: safeGoogleFont (
                         'Aksara Bali Galang',
                         fontSize: 18*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
                         color: const Color(0xffffffff),
@@ -136,6 +139,7 @@ class AntrenmanProgrami extends StatelessWidget {
                         fontSize: 18*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xffffffff),
                       ),
                     ),

@@ -3,7 +3,6 @@ import 'package:myapp/rapidsport/beslenmefiziksel.dart';
 import 'package:myapp/rapidsport/beslenmeogun.dart';
 import 'package:myapp/utils.dart';
 
-import 'anasayfa.dart';
 
 class BeslenmeVegan extends StatelessWidget {
   const BeslenmeVegan({super.key});
@@ -17,7 +16,7 @@ class BeslenmeVegan extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // beslenmevegangxM (53:1533)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -57,6 +56,7 @@ class BeslenmeVegan extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: safeGoogleFont (
                   'Arial',
+                  decoration: TextDecoration.none,
                   fontSize: 30*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.4*ffem/fem,
@@ -81,6 +81,7 @@ class BeslenmeVegan extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -103,6 +104,7 @@ class BeslenmeVegan extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -125,6 +127,7 @@ class BeslenmeVegan extends StatelessWidget {
                     'Arial',
                     fontSize: 18*ffem,
                     fontWeight: FontWeight.w400,
+                    decoration: TextDecoration.none,
                     height: 1*ffem/fem,
                     color: const Color(0xff000000),
                   ),
@@ -152,6 +155,7 @@ class BeslenmeVegan extends StatelessWidget {
                       'Aksara Bali Galang',
                       fontSize: 18*ffem,
                       fontWeight: FontWeight.w400,
+                      decoration: TextDecoration.none,
                       height: 1*ffem/fem,
                       color: const Color(0xffffffff),
                     ),

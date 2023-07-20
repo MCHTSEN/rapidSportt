@@ -17,7 +17,7 @@ class AyarlarKullanici extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // ayarlarkullaniciZBB (33:1131)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 0*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 0*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -101,6 +101,7 @@ class AyarlarKullanici extends StatelessWidget {
                             'Inter',
                             fontSize: 16*ffem,
                             fontWeight: FontWeight.w700,
+                            decoration: TextDecoration.none,
                             height: 1.2125*ffem/fem,
                             color: const Color(0xff000000),
                           ),
@@ -121,6 +122,7 @@ class AyarlarKullanici extends StatelessWidget {
                   fontSize: 16*ffem,
                   fontWeight: FontWeight.w700,
                   height: 1.2125*ffem/fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),
@@ -160,6 +162,7 @@ class AyarlarKullanici extends StatelessWidget {
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xff000000),
                       ),
                     ),
@@ -171,6 +174,7 @@ class AyarlarKullanici extends StatelessWidget {
                       'Inter',
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w400,
+                      decoration: TextDecoration.none,
                       height: 1.2125*ffem/fem,
                       color: const Color(0xff000000),
                     ),
@@ -204,6 +208,7 @@ class AyarlarKullanici extends StatelessWidget {
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xff000000),
                       ),
                     ),
@@ -230,6 +235,7 @@ class AyarlarKullanici extends StatelessWidget {
                               'Inter',
                               fontSize: 16*ffem,
                               fontWeight: FontWeight.w400,
+                              decoration: TextDecoration.none,
                               height: 1.2125*ffem/fem,
                               color: const Color(0xff000000),
                             ),
@@ -267,6 +273,7 @@ class AyarlarKullanici extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                   ),
@@ -281,6 +288,7 @@ class AyarlarKullanici extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
+                        decoration: TextDecoration.none,
                       ),
                     ),
                   ),
@@ -306,6 +314,7 @@ class AyarlarKullanici extends StatelessWidget {
                     fontSize: 16*ffem,
                     fontWeight: FontWeight.w700,
                     height: 1.2125*ffem/fem,
+                    decoration: TextDecoration.none,
                     color: const Color(0xff000000),
                   ),
                 ),
@@ -329,6 +338,7 @@ class AyarlarKullanici extends StatelessWidget {
                   'Ödeme Yöntemi',
                   style: safeGoogleFont (
                     'Inter',
+                    decoration: TextDecoration.none,
                     fontSize: 16*ffem,
                     fontWeight: FontWeight.w700,
                     height: 1.2125*ffem/fem,
@@ -376,7 +386,8 @@ class AyarlarKullanici extends StatelessWidget {
                     // kDHX (33:1162)
                     margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 191*fem, 1*fem),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const GirisYap())
+                  );},
                       style: TextButton.styleFrom (
                         padding: EdgeInsets.zero,
                       ),
@@ -387,6 +398,7 @@ class AyarlarKullanici extends StatelessWidget {
                           fontSize: 16*ffem,
                           fontWeight: FontWeight.w400,
                           height: 1.2125*ffem/fem,
+                          decoration: TextDecoration.none,
                           color: const Color(0xff000000),
                         ),
                       ),

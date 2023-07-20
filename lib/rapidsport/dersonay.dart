@@ -14,7 +14,7 @@ class DersOnay extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // dersonay1gy (31:927)
-        padding: EdgeInsets.fromLTRB(1*fem, 30*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(1*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -55,6 +55,7 @@ class DersOnay extends StatelessWidget {
                   fontSize: 36*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1*ffem/fem,
+                  decoration: TextDecoration.none,
                   letterSpacing: -0.4099999964*fem,
                   color: const Color(0xff000000),
                 ),
@@ -85,6 +86,7 @@ class DersOnay extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),

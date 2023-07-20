@@ -14,7 +14,7 @@ class OdemeBasari extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // odemebasarizyT (34:2512)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -57,6 +57,7 @@ class OdemeBasari extends StatelessWidget {
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
                   color: const Color(0xff000000),
+                  decoration: TextDecoration.none,
                 ),
               ),
             ),
@@ -81,10 +82,11 @@ class OdemeBasari extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: safeGoogleFont (
                   'Inter',
-                  fontSize: 34*ffem,
+                  fontSize: 32*ffem,
                   fontWeight: FontWeight.w400,
                   height: 1.3888888889*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
+                  decoration: TextDecoration.none,
                   color: const Color(0xff000000),
                 ),
               ),

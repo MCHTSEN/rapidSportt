@@ -15,7 +15,7 @@ class GirisYap extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // girisyapWKF (214:1549)
-        padding: EdgeInsets.fromLTRB(10*fem, 20*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
         decoration: BoxDecoration (
           color: const Color(0xffffffff),
@@ -49,6 +49,7 @@ class GirisYap extends StatelessWidget {
                             letterSpacing: -0.72*fem,
                             fontStyle: FontStyle.italic,
                             color: const Color(0xff292d32),
+                            decoration: TextDecoration.none,
                           ),
                         ),
                       ),
@@ -71,6 +72,7 @@ class GirisYap extends StatelessWidget {
                             height: 1.3529411765*ffem/fem,
                             letterSpacing: -0.17*fem,
                             color: const Color(0xff6a788a),
+                            decoration: TextDecoration.none,
                           ),
                         ),
                       ),
@@ -109,6 +111,7 @@ class GirisYap extends StatelessWidget {
                           'Arial',
                           fontSize: 17*ffem,
                           fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.none,
                           height: 1.3529411765*ffem/fem,
                           letterSpacing: -0.17*fem,
                           color: const Color(0xffffffff),
@@ -139,6 +142,7 @@ class GirisYap extends StatelessWidget {
                             'Arial',
                             fontSize: 17*ffem,
                             fontWeight: FontWeight.w400,
+                            decoration: TextDecoration.none,
                             height: 1.3529411765*ffem/fem,
                             letterSpacing: -0.17*fem,
                             color: const Color(0xffffffff),
@@ -167,6 +171,7 @@ class GirisYap extends StatelessWidget {
                         fontSize: 17*ffem,
                         fontWeight: FontWeight.w400,
                         height: 1.3529411765*ffem/fem,
+                        decoration: TextDecoration.none,
                         letterSpacing: -0.17*fem,
                         color: const Color(0xff292d32),
                       ),
@@ -199,6 +204,7 @@ class GirisYap extends StatelessWidget {
                       style: safeGoogleFont (
                         'Arial',
                         fontSize: 17*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w400,
                         height: 1.3529411765*ffem/fem,
                         letterSpacing: -0.17*fem,

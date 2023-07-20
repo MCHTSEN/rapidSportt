@@ -14,7 +14,7 @@ class AntrenorMusaitBasla extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenormusaitbaslanKw (214:2211)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 10*fem, 1*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -43,10 +43,10 @@ class AntrenorMusaitBasla extends StatelessWidget {
             ),
             Container(
               // antrenmaninizbaladimi9iD (214:2212)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 34*fem),
+              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 34*fem),
               width: double.infinity,
               constraints: BoxConstraints (
-                maxWidth: 271*fem,
+                maxWidth: 300*fem,
               ),
               child: Text(
                 'ANTRENMANINIZ BAŞLADI MI?',
@@ -54,6 +54,7 @@ class AntrenorMusaitBasla extends StatelessWidget {
                 style: safeGoogleFont (
                   'Inter',
                   fontSize: 28*ffem,
+                  decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
                   height: 1.7857142857*ffem/fem,
                   letterSpacing: -0.4099999964*fem,
@@ -81,6 +82,7 @@ class AntrenorMusaitBasla extends StatelessWidget {
                       fontSize: 18*ffem,
                       fontWeight: FontWeight.w400,
                       height: 1*ffem/fem,
+                      decoration: TextDecoration.none,
                       color: const Color(0xffffffff),
                     ),
                   ),

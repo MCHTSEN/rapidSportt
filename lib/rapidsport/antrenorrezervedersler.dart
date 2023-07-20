@@ -15,7 +15,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // antrenorrezervedersleryYy (214:2262)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem,1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10*fem, 70*fem,1*fem, 1*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),
@@ -56,6 +56,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                 style: safeGoogleFont (
                   'Aksara Bali Galang',
                   fontSize: 20*ffem,
+                  decoration: TextDecoration.none,
                   fontWeight: FontWeight.w400,
                   height: 0.9*ffem/fem,
                   color: const Color(0xffffffff),
@@ -82,6 +83,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         'Inter',
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
                       ),
@@ -97,6 +99,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xff000000),
                       ),
                     ),
@@ -108,6 +111,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       'Inter',
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.none,
                       height: 1.2125*ffem/fem,
                       color: const Color(0xff000000),
                     ),
@@ -134,6 +138,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       style: safeGoogleFont (
                         'Inter',
                         fontSize: 16*ffem,
+                        decoration: TextDecoration.none,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
@@ -149,6 +154,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         'Inter',
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
                       ),
@@ -162,6 +168,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                       color: const Color(0xff000000),
                     ),
                   ),
@@ -188,6 +195,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         'Inter',
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none,
                         height: 1.2125*ffem/fem,
                         color: const Color(0xff000000),
                       ),
@@ -203,6 +211,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
+                        decoration: TextDecoration.none,
                         color: const Color(0xff000000),
                       ),
                     ),
@@ -215,6 +224,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.2125*ffem/fem,
+                      decoration: TextDecoration.none,
                       color: const Color(0xff000000),
                     ),
                   ),
@@ -239,6 +249,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       '12.06.2023',
                       style: safeGoogleFont (
                         'Inter',
+                        decoration: TextDecoration.none,
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
@@ -253,6 +264,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       '15.00-16.00',
                       style: safeGoogleFont (
                         'Inter',
+                        decoration: TextDecoration.none,
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
@@ -264,7 +276,8 @@ class AntrenorRezerveDersler extends StatelessWidget {
                     // tenis7uw (214:2287)
                     'TENİS',
                     style: safeGoogleFont (
-                      'Inter',
+                      'Inter', 
+                      decoration: TextDecoration.none,
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.2125*ffem/fem,
@@ -293,6 +306,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       '04.05.2023',
                       style: safeGoogleFont (
                         'Inter',
+                        decoration: TextDecoration.none,
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
@@ -307,6 +321,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                       '11.00-12.00',
                       style: safeGoogleFont (
                         'Inter',
+                        decoration: TextDecoration.none,
                         fontSize: 16*ffem,
                         fontWeight: FontWeight.w700,
                         height: 1.2125*ffem/fem,
@@ -319,6 +334,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                     'TENİS',
                     style: safeGoogleFont (
                       'Inter',
+                      decoration: TextDecoration.none,
                       fontSize: 16*ffem,
                       fontWeight: FontWeight.w700,
                       height: 1.2125*ffem/fem,
@@ -330,7 +346,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
             ),
             Container(
               // group34182iHT (250:1085)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0.04*fem, 0*fem),
+              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 0*fem),
               width: 346*fem,
               height: 56*fem,
               decoration: BoxDecoration (
@@ -361,6 +377,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                           'Rezervasyon İstekleri',
                           style: safeGoogleFont (
                             'Inter',
+                            decoration: TextDecoration.none,
                             fontSize: 16*ffem,
                             fontWeight: FontWeight.w700,
                             height: 1.2125*ffem/fem,
@@ -373,6 +390,7 @@ class AntrenorRezerveDersler extends StatelessWidget {
                         '1',
                         style: safeGoogleFont (
                           'Inter',
+                          decoration: TextDecoration.none,
                           fontSize: 16*ffem,
                           fontWeight: FontWeight.w700,
                           height: 1.2125*ffem/fem,
