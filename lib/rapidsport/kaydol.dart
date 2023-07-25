@@ -12,9 +12,8 @@ class Kaydol extends StatelessWidget {
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
+    return Scaffold(
+      body: Container(
         // kaydolC5s (214:1197)
         padding: EdgeInsets.fromLTRB(1*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
@@ -168,7 +167,7 @@ class Kaydol extends StatelessWidget {
                     // isim4Fo (214:1209)
                     margin: EdgeInsets.fromLTRB(5*fem, 0*fem, 0*fem, 20*fem),
                     child: Text(
-                      'İsim',
+                      'Email',
                       style: safeGoogleFont (
                         'Arial',
                         fontSize: 17*ffem,
@@ -181,12 +180,21 @@ class Kaydol extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // rectangle1157rxM (250:1210)
+                    // rectangle1157Jn9 (250:1213)
                     width: double.infinity,
-                    height: 38*fem,
-                    decoration: BoxDecoration (
+                    height: 38 * fem,
+                    decoration: BoxDecoration(
                       border: Border.all(color: const Color(0xffd9d9d9)),
                       color: const Color(0xffffffff),
+                    ),
+                    child: TextFormField(
+                      // Email TextFormField
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: 'Emailinizi yazın',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10 * fem),
+                      ),
                     ),
                   ),
                 ],
@@ -203,7 +211,7 @@ class Kaydol extends StatelessWidget {
                     // telefonnumarasray (214:1210)
                     margin: EdgeInsets.fromLTRB(5*fem, 0*fem, 0*fem, 19*fem),
                     child: Text(
-                      'Telefon numarası',
+                      'İsim soyisim',
                       style: safeGoogleFont (
                         'Arial',
                         fontSize: 17*ffem,
@@ -216,12 +224,21 @@ class Kaydol extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // rectangle11564h3 (250:1209)
+                    // rectangle1157Jn9 (250:1213)
                     width: double.infinity,
-                    height: 38*fem,
-                    decoration: BoxDecoration (
+                    height: 38 * fem,
+                    decoration: BoxDecoration(
                       border: Border.all(color: const Color(0xffd9d9d9)),
                       color: const Color(0xffffffff),
+                    ),
+                    child: TextFormField(
+                      // isim TextFormField
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'İsminizi yazın',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10 * fem),
+                      ),
                     ),
                   ),
                 ],
@@ -251,12 +268,21 @@ class Kaydol extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    // rectangle1158eYm (250:1211)
+                    // rectangle11563mf (250:1212)
                     width: double.infinity,
-                    height: 38*fem,
-                    decoration: BoxDecoration (
+                    height: 38 * fem,
+                    decoration: BoxDecoration(
                       border: Border.all(color: const Color(0xffd9d9d9)),
                       color: const Color(0xffffffff),
+                    ),
+                    child: TextFormField(
+                      // Password TextFormField
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: 'Şifrenizi yazın',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10 * fem),
+                      ),
                     ),
                   ),
                 ],

@@ -11,9 +11,8 @@ class Egitmenler extends StatelessWidget {
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
+    return Scaffold(
+      body: Container(
         // egitmenlerbKj (31:980)
         padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
@@ -80,19 +79,31 @@ class Egitmenler extends StatelessWidget {
                       height: 24*fem,
                     ),
                   ),
-                  Text(
-                    // eitmenlerdearaEL5 (31:984)
-                    'Eğitmenlerde Ara',
-                    style: safeGoogleFont (
-                      'Arial',
-                      fontSize: 17*ffem,
-                      fontWeight: FontWeight.w400,
-                      decoration: TextDecoration.none,
-                      height: 1.3529411765*ffem/fem,
-                      letterSpacing: -0.17*fem,
-                      color: const Color(0xffb3bfcb),
-                    ),
-                  ),
+                  Expanded(child: TextField(
+                    decoration: InputDecoration(hintText: 'Eğitmenlerde Ara',
+                        hintStyle: safeGoogleFont(
+                          'Arial',
+                          fontSize: 17 * ffem,
+                          fontWeight: FontWeight.w400,
+                          height: 1.3529411765 * ffem / fem,
+                          letterSpacing: -0.17 * fem,
+                          color: const Color(0xffb3bfcb),
+                        ),
+                        border: InputBorder.none,),
+                  ))
+                  // Text(
+                  //   // eitmenlerdearaEL5 (31:984)
+                  //   'Eğitmenlerde Ara',
+                  //   style: safeGoogleFont (
+                  //     'Arial',
+                  //     fontSize: 17*ffem,
+                  //     fontWeight: FontWeight.w400,
+                  //     decoration: TextDecoration.none,
+                  //     height: 1.3529411765*ffem/fem,
+                  //     letterSpacing: -0.17*fem,
+                  //     color: const Color(0xffb3bfcb),
+                  //   ),
+                  // ),
                 ],
               ),
             ),

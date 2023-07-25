@@ -15,7 +15,7 @@ class PaketSecimOnaylama extends StatelessWidget {
       width: double.infinity,
       child: Container(
         // paketsecimonaylama8UV (33:1402)
-        padding: EdgeInsets.fromLTRB(14*fem, 123*fem, 13*fem, 190*fem),
+        padding: EdgeInsets.fromLTRB(14*fem, 123*fem, 14*fem, 190*fem),
         width: double.infinity,
         decoration: const BoxDecoration (
           color: Color(0xffffffff),

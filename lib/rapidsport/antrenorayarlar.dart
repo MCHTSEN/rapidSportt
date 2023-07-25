@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/rapidsport/antrenoranasayfa.dart';
 import 'package:myapp/rapidsport/girisyap.dart';
 import 'package:myapp/utils.dart';
 

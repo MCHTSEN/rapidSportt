@@ -11,9 +11,8 @@ class BeslenmeBoyKilo extends StatelessWidget {
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
+    return Scaffold(
+     body: Container(
         // beslenmeboykilocz1 (53:1388)
         padding: EdgeInsets.fromLTRB(10*fem, 70*fem, 1*fem, 1*fem),
         width: double.infinity,
@@ -65,27 +64,46 @@ class BeslenmeBoyKilo extends StatelessWidget {
               ),
             ),
             Container(
-              // frame75BxZ (111:1904)
-              margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 34*fem),
-              padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
-              width: 348*fem,
-              decoration: BoxDecoration (
-                color: const Color(0xffeff2f5),
-                borderRadius: BorderRadius.circular(14*fem),
-              ),
-              child: Text(
-                'Mevcut kilonuzu girin',
-                style: safeGoogleFont (
-                  'Arial',
-                  fontSize: 17*ffem,
-                  fontWeight: FontWeight.w400,
-                  height: 1.3529411765*ffem/fem,
-                  letterSpacing: -0.17*fem,
-                  color: const Color(0xffb3bfcb),
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
+                    // rectangle1157Jn9 (250:1213)
+                    margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 13*fem, 34*fem),
+                    padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
+                    width: 348*fem,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffeff2f5),
+                      borderRadius: BorderRadius.circular(14*fem),
+                    ),
+                    child: TextFormField(
+                      // isim TextFormField
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'Mevcut kilonuzu yazın',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10 * fem),
+                      ),
+                    ),
+                  ),
+            // Container(
+            //   // frame75BxZ (111:1904)
+            //   margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 34*fem),
+            //   padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
+            //   width: 348*fem,
+            //   decoration: BoxDecoration (
+            //     color: const Color(0xffeff2f5),
+            //     borderRadius: BorderRadius.circular(14*fem),
+            //   ),
+            //   child: Text(
+            //     'Mevcut kilonuzu girin',
+            //     style: safeGoogleFont (
+            //       'Arial',
+            //       fontSize: 17*ffem,
+            //       fontWeight: FontWeight.w400,
+            //       height: 1.3529411765*ffem/fem,
+            //       letterSpacing: -0.17*fem,
+            //       color: const Color(0xffb3bfcb),
+            //       decoration: TextDecoration.none,
+            //     ),
+            //   ),
+            // ),
             Container(
               // boyunkacm7zd (53:1446)
               margin: EdgeInsets.fromLTRB(14*fem, 0*fem, 0*fem, 35*fem),
@@ -104,27 +122,46 @@ class BeslenmeBoyKilo extends StatelessWidget {
               ),
             ),
             Container(
-              // frame76Ai1 (53:1447)
-              margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 182*fem),
-              padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
-              width: 348*fem,
-              decoration: BoxDecoration (
-                color: const Color(0xffeff2f5),
-                borderRadius: BorderRadius.circular(14*fem),
-              ),
-              child: Text(
-                'Boyunuzu girin',
-                style: safeGoogleFont (
-                  'Arial',
-                  fontSize: 17*ffem,
-                  fontWeight: FontWeight.w400,
-                  height: 1.3529411765*ffem/fem,
-                  decoration: TextDecoration.none,
-                  letterSpacing: -0.17*fem,
-                  color: const Color(0xffb3bfcb),
-                ),
-              ),
-            ),
+                    // rectangle1157Jn9 (250:1213)
+                    margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 13*fem, 34*fem),
+                    padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
+                    width: 348*fem,
+                    decoration: BoxDecoration(
+                      color: const Color(0xffeff2f5),
+                      borderRadius: BorderRadius.circular(14*fem),
+                    ),
+                    child: TextFormField(
+                      // isim TextFormField
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        hintText: 'Boyunuzu yazın',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(horizontal: 10 * fem),
+                      ),
+                    ),
+                  ),
+            // Container(
+            //   // frame76Ai1 (53:1447)
+            //   margin: EdgeInsets.fromLTRB(13*fem, 0*fem, 0*fem, 182*fem),
+            //   padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 13*fem, 14*fem),
+            //   width: 348*fem,
+            //   decoration: BoxDecoration (
+            //     color: const Color(0xffeff2f5),
+            //     borderRadius: BorderRadius.circular(14*fem),
+            //   ),
+            //   child: Text(
+            //     'Boyunuzu girin',
+            //     style: safeGoogleFont (
+            //       'Arial',
+            //       fontSize: 17*ffem,
+            //       fontWeight: FontWeight.w400,
+            //       height: 1.3529411765*ffem/fem,
+            //       decoration: TextDecoration.none,
+            //       letterSpacing: -0.17*fem,
+            //       color: const Color(0xffb3bfcb),
+            //     ),
+            //   ),
+            // ),
             Container(
               // frame373oj (53:1396)
               margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 13*fem, 0*fem),

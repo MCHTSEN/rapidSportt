@@ -11,50 +11,50 @@ class DersRezerveEt extends StatelessWidget {
     double baseWidth = 390;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
+    return Scaffold(
+      body: Container(
         // dersrezerveetwZo (12:1274)
-        padding: EdgeInsets.fromLTRB(10*fem, 15*fem, 1*fem, 1*fem),
+        padding: EdgeInsets.fromLTRB(10 * fem, 15 * fem, 1 * fem, 1 * fem),
         width: double.infinity,
-        decoration: BoxDecoration (
+        decoration: BoxDecoration(
           color: const Color(0xffffffff),
-          borderRadius: BorderRadius.circular(46*fem),
+          borderRadius: BorderRadius.circular(46 * fem),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               // vuesaxlineararrowleftCVj (12:1324)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 26*fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 26 * fem),
               child: TextButton(
-                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const Anasayfa())
-                  );},
-                style: TextButton.styleFrom (
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Anasayfa()));
+                },
+                style: TextButton.styleFrom(
                   padding: EdgeInsets.zero,
                 ),
                 child: SizedBox(
-                  width: 36*fem,
-                  height: 36*fem,
+                  width: 36 * fem,
+                  height: 36 * fem,
                   child: Image.asset(
                     'assets/rapidsport/images/geriok.png',
-                    width: 36*fem,
-                    height: 36*fem,
+                    width: 36 * fem,
+                    height: 36 * fem,
                   ),
                 ),
               ),
             ),
             Container(
               // tmkategorilers65 (12:1275)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 12*fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 12 * fem),
               child: Text(
                 'Tüm Kategoriler',
-                style: safeGoogleFont (
+                style: safeGoogleFont(
                   'Arial',
-                  fontSize: 36*ffem,
+                  fontSize: 36 * ffem,
                   fontWeight: FontWeight.w400,
-                  height: 1.1666666667*ffem/fem,
-                  letterSpacing: -1.8*fem,
+                  height: 1.1666666667 * ffem / fem,
+                  letterSpacing: -1.8 * fem,
                   decoration: TextDecoration.none,
                   color: const Color(0xff292d32),
                 ),
@@ -62,43 +62,48 @@ class DersRezerveEt extends StatelessWidget {
             ),
             Container(
               // frame748nh (12:1276)
-              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 21*fem),
-              padding: EdgeInsets.fromLTRB(13*fem, 14*fem, 162*fem, 14*fem),
+              margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 21 * fem),
+              padding: EdgeInsets.fromLTRB(13 * fem, 14 * fem, 162 * fem, 14 * fem),
               width: double.infinity,
-              decoration: BoxDecoration (
+              decoration: BoxDecoration(
                 color: const Color(0xffeff2f5),
-                borderRadius: BorderRadius.circular(14*fem),
+                borderRadius: BorderRadius.circular(14 * fem),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
                     // vuesaxlinearsearchnormaldDf (12:1277)
-                    margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 10*fem, 0*fem),
-                    width: 24*fem,
-                    height: 24*fem,
+                    margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 10 * fem, 0 * fem),
+                    width: 24 * fem,
+                    height: 24 * fem,
                     child: Image.asset(
                       'assets/rapidsport/images/buyutec.png',
-                      width: 24*fem,
-                      height: 24*fem,
+                      width: 24 * fem,
+                      height: 24 * fem,
                     ),
                   ),
-                  Text(
-                    // kategorilerdearaKMP (12:1278)
-                    'Kategorilerde Ara',
-                    style: safeGoogleFont (
-                      'Arial',
-                      fontSize: 17*ffem,
-                      fontWeight: FontWeight.w400,
-                      height: 1.3529411765*ffem/fem,
-                      decoration: TextDecoration.none,
-                      letterSpacing: -0.17*fem,
-                      color: const Color(0xffb3bfcb),
+                  Expanded(
+                    child: TextField(
+                      // Kategorilerde Ara Text Input
+                      decoration: InputDecoration(
+                        hintText: 'Kategorilerde Ara',
+                        hintStyle: safeGoogleFont(
+                          'Arial',
+                          fontSize: 17 * ffem,
+                          fontWeight: FontWeight.w400,
+                          height: 1.3529411765 * ffem / fem,
+                          letterSpacing: -0.17 * fem,
+                          color: const Color(0xffb3bfcb),
+                        ),
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
+
             SizedBox(
               // group34133Ez9 (238:1103)
               width: double.infinity,
