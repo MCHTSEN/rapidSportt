@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/rapidsport/anasayfa.dart';
 import 'package:myapp/rapidsport/yakinantonay.dart';
 import 'package:myapp/utils.dart';
+import 'package:myapp/widgets/osm.dart';
+import 'package:myapp/widgets/textarea.dart';
 
 class YakindakiAntrenorleriGor extends StatelessWidget {
   const YakindakiAntrenorleriGor({super.key});
@@ -11,69 +13,37 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
     double baseWidth = 375;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
+    Widget w;
+     w =Container(
+      
+     );
+     
+
+    return Stack(
+      children: [
+         Osm(children: Positioned(
+          top: 0,
+          left: 0,
+          right: 0,
+          child: w,
+        )),
+        Positioned(
+      top: 10,
+      left: 0,
+      right: 0,
+      child:
+             Container(
         // yakindakiantrenorlerigorn6q (12:821)
         width: double.infinity,
         height: 812*fem,
-        decoration: const BoxDecoration (
-          color: Color(0xffffffff),
-        ),
+        
         child: SizedBox(
           // group34134ow3 (238:1104)
           width: double.infinity,
           height: double.infinity,
           child: Stack(
             children: [
-              Positioned(
-                // locationpinjJu (12:1146)
-                left: 46*fem,
-                top: 550*fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 15*fem,
-                    height: 34*fem,
-                    child: Image.asset(
-                      'assets/rapidsport/images/location-pin.png',
-                      width: 15*fem,
-                      height: 34*fem,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                // locationpinbM7 (12:1140)
-                left: 182*fem,
-                top: 69*fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 15*fem,
-                    height: 34*fem,
-                    child: Image.asset(
-                      'assets/rapidsport/images/location-pin.png',
-                      width: 15*fem,
-                      height: 34*fem,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                // locationpin6Ym (12:1143)
-                left: 354*fem,
-                top: 178*fem,
-                child: Align(
-                  child: SizedBox(
-                    width: 15*fem,
-                    height: 34*fem,
-                    child: Image.asset(
-                      'assets/rapidsport/images/location-pin.png',
-                      width: 15*fem,
-                      height: 34*fem,
-                    ),
-                  ),
-                ),
-              ),
+              
               Positioned(
                 // group34127BaD (238:1097)
                 left: 0*fem,
@@ -82,13 +52,6 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(10*fem, 1*fem, 1*fem, 1*fem),
                   width: 375*fem,
                   height: 812*fem,
-                  decoration: const BoxDecoration (
-                    image: DecorationImage (
-                      image: AssetImage (
-                        'assets/rapidsport/images/map.png',
-                      ),
-                    ),
-                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -110,17 +73,6 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
                               height: 24*fem,
                             ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        // locationpincxM (12:1138)
-                        margin: EdgeInsets.fromLTRB(69*fem, 0*fem, 0*fem, 233*fem),
-                        width: 15*fem,
-                        height: 34*fem,
-                        child: Image.asset(
-                          'assets/rapidsport/images/location-pin.png',
-                          width: 15*fem,
-                          height: 34*fem,
                         ),
                       ),
                       Container(
@@ -563,6 +515,9 @@ class YakindakiAntrenorleriGor extends StatelessWidget {
           ),
         ),
       ),
-          );
+      
+    ),
+      ]
+    );
   }
 }

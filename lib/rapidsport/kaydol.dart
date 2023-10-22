@@ -390,7 +390,7 @@ class Kaydol extends StatelessWidget {
             ),
             Container(
               // frame37xFw (214:1218)
-              margin: EdgeInsets.fromLTRB(14*fem, 0*fem, 0*fem, 0*fem),
+              margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
               child: TextButton(
                 onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const Giris1())
                   );},
@@ -414,7 +414,7 @@ class Kaydol extends StatelessWidget {
                       children: [
                         Container(
                           // kaydol2f7 (214:1220)
-                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 7*fem, 0*fem),
+                          margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 0*fem),
                           child: Text(
                             'Kaydol',
                             style: safeGoogleFont (
