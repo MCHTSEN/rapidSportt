@@ -38,7 +38,8 @@ dependencies:
   flutter_riverpod: ^2.3.6
   kartal: ^3.5.0
   equatable: ^2.0.5 
-
+  
+  
   #firebase
   cloud_firestore: ^4.8.0
   firebase_core: ^2.13.1
@@ -58,11 +59,13 @@ dependencies:
 
   #widgets
   easy_stepper: ^0.8.1
+  dropdown_button2: ^2.3.9
 
   # text 
   animated_text_kit: ^4.2.2
   cupertino_icons: ^1.0.2
   google_fonts: ^4.0.4
+  google_maps_flutter: ^2.5.0
   #flutter_osm_plugin: ^0.60.5
 
 dev_dependencies:

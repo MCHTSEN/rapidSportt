@@ -24,7 +24,7 @@ class FadeText extends StatelessWidget {
           fontWeight: FontWeight.bold,
         ),
         child: AnimatedTextKit(
-          pause: const Duration(milliseconds: 5),
+          pause: const Duration(milliseconds: 26),
           repeatForever: true,
           animatedTexts: [
             FadeAnimatedText(textFirst ?? ''),

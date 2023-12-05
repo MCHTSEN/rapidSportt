@@ -3,6 +3,7 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
+import 'package:myapp/features/home/home_view.dart';
 import 'package:myapp/utils.dart';
 import '../../rapidsport/anasayfa.dart';
 import 'authentication_provider.dart';
@@ -63,7 +64,7 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
           AuthStateChangeAction<SignedIn>((context, state) {
             if (state.user != null) {
               checkUserLoggedIn(state.user);
-              context.route.navigateToPage(const Anasayfa());
+              context.route.navigateToPage(const HomeView());
             }
           }),
         ],

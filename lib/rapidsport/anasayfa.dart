@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:myapp/rapidsport/antrenmanprogrami.dart';
 import 'package:myapp/rapidsport/ayarlarkullanici.dart';
 import 'package:myapp/rapidsport/dersrezerveet.dart';
@@ -6,15 +7,23 @@ import 'package:myapp/rapidsport/beslenmeprogrami.dart';
 import 'package:myapp/rapidsport/yakindakiantrenorlerigor.dart';
 import 'package:myapp/utils.dart';
 
-class Anasayfa extends StatelessWidget {
+class Anasayfa extends StatefulWidget {
   const Anasayfa({super.key});
 
+  @override
+  State<Anasayfa> createState() => _AnasayfaState();
+}
+
+class _AnasayfaState extends State<Anasayfa> {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 375;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
-    return SizedBox(
+   
+    return 
+
+    SizedBox(
       width: double.infinity,
       child: Container(
         // anasayfaY5T (34:2556)
