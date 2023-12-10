@@ -5,8 +5,7 @@
         android:name="androidx.multidex.MultiDexApplication"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAFX1d4L0kO7cTTg2OeTmoIfT2actwnviU"/>
+        
                
         <activity
             android:name=".MainActivity"
@@ -34,5 +33,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAntoKqvGN7JzdMS5iVSgy7ECzJRErrvZs"/>
+
     </application>
 </manifest>

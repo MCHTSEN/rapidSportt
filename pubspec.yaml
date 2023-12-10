@@ -45,6 +45,10 @@ dependencies:
   firebase_core: ^2.13.1
   firebase_auth: ^4.12.1
   firebase_ui_auth: ^1.9.1
+
+  #google 
+  google_fonts: ^4.0.4
+  google_maps_flutter: ^2.5.0
   #utils
   image_picker: ^1.0.4
   
@@ -64,16 +68,19 @@ dependencies:
   # text 
   animated_text_kit: ^4.2.2
   cupertino_icons: ^1.0.2
-  google_fonts: ^4.0.4
-  google_maps_flutter: ^2.5.0
-  #flutter_osm_plugin: ^0.60.5
+  
+  location: ^5.0.0
+  flutter_polyline_points: ^2.0.0
 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.4.6
   auto_route_generator: ^7.3.2
+
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

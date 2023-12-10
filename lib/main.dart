@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/features/auth/authentication_view.dart';
 import 'package:myapp/features/auth/sign_up_view.dart';
+import 'package:myapp/features/find_trainer/find_trainer_view.dart';
 import 'package:myapp/features/home/home_view.dart';
 import 'package:myapp/product/initialize/application_start.dart';
 import 'package:myapp/rapidsport/anasayfa.dart';
@@ -26,6 +27,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const ProviderScope(child: SingUpView()));
+        home: const ProviderScope(child: FindTrainerView()));
   }
 }

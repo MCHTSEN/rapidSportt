@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:myapp/features/auth/sign_up_view.dart';
 import 'package:myapp/features/find_trainer/find_trainer_view.dart';
 import 'package:myapp/rapidsport/antrenmanprogrami.dart';
 import 'package:myapp/rapidsport/ayarlarkullanici.dart';
@@ -8,6 +9,7 @@ import 'package:myapp/rapidsport/dersrezerveet.dart';
 import 'package:myapp/rapidsport/beslenmeprogrami.dart';
 import 'package:myapp/rapidsport/yakindakiantrenorlerigor.dart';
 import 'package:myapp/utils.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -31,13 +33,21 @@ class _AnasayfaState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hoş geldin, Mücahit'),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage('https://placekitten.com/200/200'),
-            ),
-          )
+              padding: const EdgeInsets.only(right: 10.0),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SingUpView()));
+                },
+                icon: const CircleAvatar(
+                  backgroundImage:
+                      NetworkImage('https://placekitten.com/200/200'),
+                ),
+              ))
         ],
         elevation: 2,
       ),

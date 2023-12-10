@@ -7,6 +7,7 @@ import 'package:myapp/features/home/home_view.dart';
 import 'package:myapp/utils.dart';
 import '../../rapidsport/anasayfa.dart';
 import 'authentication_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthenticationView extends ConsumerStatefulWidget {
   const AuthenticationView({super.key});
