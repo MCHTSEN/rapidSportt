@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "123094108738",
-    "project_id": "rapid-sportt",
-    "storage_bucket": "rapid-sportt.appspot.com"
+    "project_number": "723594552775",
+    "project_id": "rapid-v1",
+    "storage_bucket": "rapid-v1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:123094108738:android:e4a266652c0118fd067bdb",
+        "mobilesdk_app_id": "1:723594552775:android:0e38127a5a28b239e5a5e2",
         "android_client_info": {
           "package_name": "com.example.test"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCheOK9pI6EFyxL5ek4CSfnKdU0XBap9gw"
+          "current_key": "AIzaSyA29EkEpLFDj11WNTLpUabg129U56eEmrI"
         }
       ],
       "services": {

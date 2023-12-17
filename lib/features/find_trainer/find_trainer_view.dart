@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class FindTrainerView extends StatefulWidget {
   const FindTrainerView({super.key});
@@ -29,18 +30,12 @@ class MapSampleState extends State<FindTrainerView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey,
-      body: Center(
-        child: SizedBox(
-          height: 300,
-          width: 300,
-          child: GoogleMap(
-            mapType: MapType.normal,
-            initialCameraPosition: _kGooglePlex,
-            onMapCreated: (GoogleMapController controller) {
-              _controller.complete(controller);
-            },
-          ),
-        ),
+      body: GoogleMap(
+        mapType: MapType.normal,
+        initialCameraPosition: _kGooglePlex,
+        onMapCreated: (GoogleMapController controller) {
+          _controller.complete(controller);
+        },
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: _goToTheLake,

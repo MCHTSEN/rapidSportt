@@ -1,10 +1,9 @@
 name: myapp
 description: A exported flutter project from FUNCTION12
 
-
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -21,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
+  sdk: ">=2.18.2 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -30,63 +29,42 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: ^4.2.2
+  auto_route: ^7.8.4
+  cloud_firestore: ^4.8.0
+  cupertino_icons: ^1.0.2
+  dropdown_button2: ^2.3.9
+  easy_stepper: ^0.8.1
+  equatable: ^2.0.5
+  firebase_auth: ^4.12.1
+  firebase_core: ^2.13.1
+  firebase_storage: ^11.5.6
+  firebase_ui_auth: ^1.9.1
   flutter:
     sdk: flutter
-
-
-    #core 
+  flutter_polyline_points: ^2.0.0
   flutter_riverpod: ^2.3.6
-  kartal: ^3.5.0
-  equatable: ^2.0.5 
-  
-  
-  #firebase
-  cloud_firestore: ^4.8.0
-  firebase_core: ^2.13.1
-  firebase_auth: ^4.12.1
-  firebase_ui_auth: ^1.9.1
-
-  #google 
+  go_router: ^12.1.3
   google_fonts: ^4.0.4
   google_maps_flutter: ^2.5.0
-  #utils
   image_picker: ^1.0.4
-  
-  #cache
+  kartal: ^3.5.0
+  location: ^5.0.0
+  logger: ^2.0.2+1
+  responsive_sizer: ^3.2.0
   shared_preferences: ^2.2.0
 
-  #navigation
-  auto_route: ^7.8.4
-
-  #ui helpers
-  responsive_sizer: ^3.1.1
-
-  #widgets
-  easy_stepper: ^0.8.1
-  dropdown_button2: ^2.3.9
-
-  # text 
-  animated_text_kit: ^4.2.2
-  cupertino_icons: ^1.0.2
-  
-  location: ^5.0.0
-  flutter_polyline_points: ^2.0.0
-
-  
 dev_dependencies:
+  auto_route_generator: ^7.3.2
+  build_runner: ^2.4.6
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
-  build_runner: ^2.4.6
-  auto_route_generator: ^7.3.2
 
-  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -98,20 +76,16 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/rapidsport/images/
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts
-
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

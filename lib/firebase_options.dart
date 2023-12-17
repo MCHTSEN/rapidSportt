@@ -44,37 +44,37 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyA22-eW_FXc3PPxiQmlJljRJ1cJsqRZnOo',
-    appId: '1:123094108738:web:cf6d9b106f5a713f067bdb',
-    messagingSenderId: '123094108738',
-    projectId: 'rapid-sportt',
-    authDomain: 'rapid-sportt.firebaseapp.com',
-    storageBucket: 'rapid-sportt.appspot.com',
+    apiKey: 'AIzaSyChGLT7jqd42LbTiTCUx9CMraVTrKmcD5U',
+    appId: '1:723594552775:web:8bb171ad4cb3d79ee5a5e2',
+    messagingSenderId: '723594552775',
+    projectId: 'rapid-v1',
+    authDomain: 'rapid-v1.firebaseapp.com',
+    storageBucket: 'rapid-v1.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCheOK9pI6EFyxL5ek4CSfnKdU0XBap9gw',
-    appId: '1:123094108738:android:e4a266652c0118fd067bdb',
-    messagingSenderId: '123094108738',
-    projectId: 'rapid-sportt',
-    storageBucket: 'rapid-sportt.appspot.com',
+    apiKey: 'AIzaSyA29EkEpLFDj11WNTLpUabg129U56eEmrI',
+    appId: '1:723594552775:android:0e38127a5a28b239e5a5e2',
+    messagingSenderId: '723594552775',
+    projectId: 'rapid-v1',
+    storageBucket: 'rapid-v1.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBQHWtQ13KPAC6KLjKx8gmL7zy7yZ-3G7w',
-    appId: '1:123094108738:ios:e4e76d427cad5e70067bdb',
-    messagingSenderId: '123094108738',
-    projectId: 'rapid-sportt',
-    storageBucket: 'rapid-sportt.appspot.com',
-    iosBundleId: 'com.rapidsport.test',
+    apiKey: 'AIzaSyBPq0uObLAlGBZ5eUHSSBxeIhhsocm8enI',
+    appId: '1:723594552775:ios:956d4ea387ab5348e5a5e2',
+    messagingSenderId: '723594552775',
+    projectId: 'rapid-v1',
+    storageBucket: 'rapid-v1.appspot.com',
+    iosBundleId: 'com.rapidsport.mchtsen',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBQHWtQ13KPAC6KLjKx8gmL7zy7yZ-3G7w',
-    appId: '1:123094108738:ios:17ea15217ed6248f067bdb',
-    messagingSenderId: '123094108738',
-    projectId: 'rapid-sportt',
-    storageBucket: 'rapid-sportt.appspot.com',
+    apiKey: 'AIzaSyBPq0uObLAlGBZ5eUHSSBxeIhhsocm8enI',
+    appId: '1:723594552775:ios:cb39b4c73d5d501fe5a5e2',
+    messagingSenderId: '723594552775',
+    projectId: 'rapid-v1',
+    storageBucket: 'rapid-v1.appspot.com',
     iosBundleId: 'com.example.test',
   );
 }

@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:myapp/features/auth/create_news_logic.dart'; // Eklediğimiz firestore paketi
-import 'package:intl/intl.dart';
 import 'package:myapp/features/home/home_view.dart';
+import 'package:myapp/product/models/user_model.dart';
+import 'package:myapp/product/services/firebase_service.dart';
+import 'package:myapp/providers/firebase_providers.dart';
 
 class SingUpView extends ConsumerStatefulWidget {
   const SingUpView({Key? key}) : super(key: key);
@@ -26,6 +30,14 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
   }
 
   @override
+  void dispose() {
+    nameController.dispose();
+    surnameController.dispose();
+    numberController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final List<String> type = ['Eğitmen', 'Öğrenci'];
     DateTime? selectedDate;
@@ -43,46 +55,12 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextField(
-                      controller: nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'İsminizi Giriniz',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        ),
-                      ),
-                    ),
+                    _nameTextField(),
                     _emptyBox(context),
-                    TextField(
-                      controller: surnameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Soyisminizi Giriniz',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        ),
-                      ),
-                    ),
+                    _surNameTextField(),
                     _emptyBox(context),
-                    TextField(
-                      controller: numberController,
-                      decoration: const InputDecoration(
-                        labelText: 'Telefon Numaranızı Giriniz',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
-                        ),
-                      ),
-                    ),
+                    _numberTextField(),
                     _emptyBox(context),
-                    // ElevatedButton.icon(
-                    //   onPressed: () {
-                    //     showDatePicker(
-                    //         context: context,
-                    //         firstDate: DateTime(1950),
-                    //         lastDate: DateTime(2023));
-                    //   },
-                    //   icon: const Icon(Icons.date_range),
-                    //   label: const Text('Doğum Tarihinizi Seçiniz'),
-                    // ),
                     ElevatedButton.icon(
                       onPressed: () async {
                         final DateTime? pickedDate = await showDatePicker(
@@ -97,14 +75,9 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                         });
                       },
                       icon: const Icon(Icons.date_range),
-                      label: Text(
-                        selectedDate == null
-                            ? 'Doğum Tarihinizi Seçiniz'
-                            : 'Seçilen Tarih: ${DateFormat.yMd().format(selectedDate)}',
-                      ),
+                      label: const Text('Doğum Tarihinizi Seçiniz'),
                     ),
                     if (selectedDate != null) const Text('data'),
-
                     _emptyBox(context),
                     DropdownButtonFormField(
                       value: selectedOption,
@@ -149,13 +122,22 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                     _emptyBox(context),
                     ElevatedButton(
                       onPressed: () async {
-                        setState(() {
-                          changeLoading = true;
-                        });
-                        await Future.delayed(const Duration(seconds: 2));
-                        setState(() {
-                          changeLoading = false;
-                        });
+                        final userModel = UserModel(
+                            name: nameController.text,
+                            surname: surnameController.text,
+                            phone: numberController.text,
+                            birthDate: selectedDate.toString(),
+                            email: FirebaseAuth.instance.currentUser?.email,
+                            uid: FirebaseAuth.instance.currentUser?.uid);
+
+                        ref.read(firebaseServiceProvider).saveUserInfo(
+                            userModel,
+                            ref
+                                .read(firebaseServiceProvider)
+                                .auth
+                                .currentUser!
+                                .uid);
+
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -169,6 +151,42 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
             ),
             if (changeLoading) const Center(child: CircularProgressIndicator())
           ]),
+        ),
+      ),
+    );
+  }
+
+  TextField _numberTextField() {
+    return TextField(
+      controller: numberController,
+      decoration: const InputDecoration(
+        labelText: 'Telefon Numaranızı Giriniz',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        ),
+      ),
+    );
+  }
+
+  TextField _surNameTextField() {
+    return TextField(
+      controller: surnameController,
+      decoration: const InputDecoration(
+        labelText: 'Soyisminizi Giriniz',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        ),
+      ),
+    );
+  }
+
+  TextField _nameTextField() {
+    return TextField(
+      controller: nameController,
+      decoration: const InputDecoration(
+        labelText: 'İsminizi Giriniz',
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
         ),
       ),
     );

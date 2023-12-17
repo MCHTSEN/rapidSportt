@@ -4,8 +4,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../product/enums/cache_items.dart';
+
 
 class AuthenticationNotifier extends StateNotifier<AuthenticationState> {
   AuthenticationNotifier() : super(const AuthenticationState());
@@ -20,6 +20,8 @@ class AuthenticationNotifier extends StateNotifier<AuthenticationState> {
   Future<void> saveTokenToCache(String token) async {
     await CacheItems.token.write(token);
   }
+
+  
 }
 
 class AuthenticationState extends Equatable {

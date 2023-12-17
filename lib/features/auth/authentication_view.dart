@@ -3,11 +3,10 @@ import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kartal/kartal.dart';
+import 'package:myapp/features/auth/sign_up_view.dart';
 import 'package:myapp/features/home/home_view.dart';
 import 'package:myapp/utils.dart';
-import '../../rapidsport/anasayfa.dart';
 import 'authentication_provider.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AuthenticationView extends ConsumerStatefulWidget {
   const AuthenticationView({super.key});
@@ -22,6 +21,12 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
   void initState() {
     checkUserLoggedIn(FirebaseAuth.instance.currentUser);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   void checkUserLoggedIn(User? user) {
@@ -67,6 +72,9 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
               checkUserLoggedIn(state.user);
               context.route.navigateToPage(const HomeView());
             }
+          }),
+          AuthStateChangeAction<SigningUp>((context, state) {
+            context.route.navigateToPage(const SingUpView());
           }),
         ],
         child: Column(

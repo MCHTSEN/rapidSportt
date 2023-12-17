@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:kartal/kartal.dart';
 import 'package:myapp/product/utilities/package/util_image_picker.dart';
 
 class CreateNewsLogic {

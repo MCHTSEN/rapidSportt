@@ -1,8 +1,16 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:myapp/features/auth/sign_up_view.dart';
 import 'package:myapp/features/find_trainer/find_trainer_view.dart';
+import 'package:myapp/product/services/firebase_service.dart';
+import 'package:myapp/providers/auth_manager.dart';
+import 'package:myapp/providers/current_user_prov.dart';
+import 'package:myapp/providers/firebase_providers.dart';
+import 'package:myapp/providers/home_provider.dart';
 import 'package:myapp/rapidsport/antrenmanprogrami.dart';
 import 'package:myapp/rapidsport/ayarlarkullanici.dart';
 import 'package:myapp/rapidsport/dersrezerveet.dart';
@@ -11,28 +19,59 @@ import 'package:myapp/rapidsport/yakindakiantrenorlerigor.dart';
 import 'package:myapp/utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomeView extends StatefulWidget {
+import '../../product/models/user_model.dart';
+
+final _homeProvider = StateNotifierProvider<HomeNotifier, HomeState>((ref) {
+  return HomeNotifier();
+});
+
+class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
 
   @override
-  State<HomeView> createState() => _AnasayfaState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _HomeViewState();
 }
 
-class _AnasayfaState extends State<HomeView> {
+class _HomeViewState extends ConsumerState<HomeView> {
+  late final User? user;
+  late final Future<UserModel> userData;
+
+  @override
+  void initState() {
+    super.initState();
+    Future.microtask(() {
+      ref
+          .read(_homeProvider.notifier)
+          .fetchUsers(ref.watch(authProvider).currentUser!.uid);
+    });
+  }
+
+  @override
+  Future<void> didChangeDependencies() async {
+    final curUser = ref.watch(authProvider).currentUser;
+    userData = getUserData(ref);
+    super.didChangeDependencies();
+  }
+
+  Future<UserModel> getUserData(WidgetRef ref) async {
+    return await ref
+        .watch(firebaseServiceProvider)
+        .getUserByUidFromFirebase(user?.uid ?? '');
+  }
+
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 375;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    final user = ref.watch(_homeProvider).user;
     final List<Reservation> reservations = [
       Reservation("Fitness", "14:00", "Maslak Spor Merkezi", 'Serpil Akdas'),
       Reservation("Yoga", "16:30", "Central Yoga Studio", 'Tolga Can'),
       Reservation("Swimming", "10:00", "City Pool Center", 'Sami Yavuz'),
       Reservation("Cycling", "18:15", "Outdoor Park", 'Ipek Peker'),
     ];
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hoş geldin, Mücahit'),
+        title: Text(user?.name ?? ''),
         actions: [
           Padding(
               padding: const EdgeInsets.only(right: 10.0),
@@ -41,11 +80,10 @@ class _AnasayfaState extends State<HomeView> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const SingUpView()));
+                          builder: (context) => const AyarlarKullanici()));
                 },
                 icon: const CircleAvatar(
-                  backgroundImage:
-                      NetworkImage('https://placekitten.com/200/200'),
+                  backgroundImage: NetworkImage('https://picsum.photos/200'),
                 ),
               ))
         ],
@@ -56,8 +94,8 @@ class _AnasayfaState extends State<HomeView> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              _ReservationsText(context),
-              _ReservationsCard(reservations),
+              ReservationsText(context),
+              ReservationsCard(reservations),
               const Divider(),
               _emptyBox(),
               _HomeListTile(
@@ -113,11 +151,11 @@ class _AnasayfaState extends State<HomeView> {
     );
   }
 
-  SizedBox _emptyBox() => const SizedBox(
+  SizedBox emptyBox() => const SizedBox(
         height: 25,
       );
 
-  SizedBox _ReservationsCard(List<Reservation> reservations) {
+  SizedBox ReservationsCard(List<Reservation> reservations) {
     return SizedBox(
       height: 200,
       child: PageView.builder(
@@ -129,12 +167,35 @@ class _AnasayfaState extends State<HomeView> {
     );
   }
 
-  Text _ReservationsText(BuildContext context) {
+  Text ReservationsText(BuildContext context) {
     return Text(
       'Aktif Rezervasyonlar',
       style: context.general.textTheme.bodyLarge,
     );
   }
+}
+
+SizedBox _emptyBox() => const SizedBox(
+      height: 25,
+    );
+
+SizedBox _ReservationsCard(List<Reservation> reservations) {
+  return SizedBox(
+    height: 200,
+    child: PageView.builder(
+      dragStartBehavior: DragStartBehavior.start,
+      itemBuilder: (context, index) {
+        return ReservationCard(reservation: reservations[index]);
+      },
+    ),
+  );
+}
+
+Text _ReservationsText(BuildContext context) {
+  return Text(
+    'Aktif Rezervasyonlar',
+    style: context.general.textTheme.bodyLarge,
+  );
 }
 
 class _HomeListTile extends StatelessWidget {
