@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:myapp/features/auth/sign_up_view.dart';
 import 'package:myapp/features/find_trainer/find_trainer_view.dart';
+import 'package:myapp/features/nitrution/nitrution_view.dart';
 import 'package:myapp/product/services/firebase_service.dart';
 import 'package:myapp/providers/auth_manager.dart';
 import 'package:myapp/providers/current_user_prov.dart';
@@ -129,7 +130,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const BeslenmeProgrami()));
+                          builder: (context) => const NitrutionView()));
                 },
               ),
               _emptyBox(),
