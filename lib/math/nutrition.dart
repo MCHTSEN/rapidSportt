@@ -1,4 +1,5 @@
 // Beslenme Programı Algoritması
+export 'nutrition.dart';
 
 class UserInfo {
   int age;
@@ -14,6 +15,18 @@ class UserInfo {
 }
 
 class NutritionFunc {
+  String activityLevelToString(ActivityLevel level) {
+    switch (level) {
+      case ActivityLevel.sedentary:
+        return 'Sedentary';
+      case ActivityLevel.lightlyActive:
+        return 'Lightly Active';
+      case ActivityLevel.moderatelyActive:
+        return 'Moderately Active';
+      case ActivityLevel.veryActive:
+        return 'Very Active';
+    }
+  }
   double calculateBMR(UserInfo userInfo) {
     // Mifflin-St Jeor denklemi
     double bmr = (userInfo.gender == 'male')
@@ -25,6 +38,7 @@ class NutritionFunc {
 
     return bmr;
   }
+  
 
   double calculateDailyCalories(double bmr, ActivityLevel activityLevel) {
     // Aktivite seviyesine göre enerji ihtiyacını hesapla
@@ -41,6 +55,7 @@ class NutritionFunc {
         return bmr;
     }
   }
+  
 
   NutritionRecommendation generateNutritionRecommendation(double dailyCalories,
       double proteinRatio, double carbsRatio, double fatRatio) {

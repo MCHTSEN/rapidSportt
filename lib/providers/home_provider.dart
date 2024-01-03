@@ -26,6 +26,26 @@ class HomeNotifier extends StateNotifier<HomeState> {
       state = state.copyWith(user: values.single);
     }
   }
+
+  Future<Iterable<UserModel>?> fetchTutors() async {
+    final usersCollectionReference =
+        FirebaseFirestore.instance.collection('users');
+
+    final response = await usersCollectionReference
+        .where('type', isEqualTo: 'Eğitmen')
+        .withConverter<UserModel>(
+          fromFirestore: (snapshot, options) =>
+              UserModel.fromJson(snapshot.data() ?? {}),
+          toFirestore: (value, options) => {},
+        )
+        .get();
+
+    if (response.docs.isNotEmpty) {
+      final values = response.docs.map((e) => e.data());
+      return values;
+    }
+    throw Exception('Egitmen data null');
+  }
 }
 
 class HomeState extends Equatable {

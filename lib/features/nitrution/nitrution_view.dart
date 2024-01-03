@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kartal/kartal.dart';
+import 'package:myapp/math/nutrition.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'package:myapp/features/nitrution/nitrution_logic.dart';
@@ -13,125 +15,135 @@ class NitrutionView extends ConsumerStatefulWidget {
 }
 
 class _NitrutionViewState extends ConsumerState<NitrutionView> {
-  late final NitrutionLogic nitrutionLogic;
-  final PageController _pageController = PageController(viewportFraction: 0.9);
+  TextEditingController ageController = TextEditingController();
+  TextEditingController weightController = TextEditingController();
+  TextEditingController heightController = TextEditingController();
+  String gender = '';
 
-  @override
-  void initState() {
-    nitrutionLogic = NitrutionLogic();
-    super.initState();
-  }
+  // Cinsiyet seçenekleri
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> questions = nitrutionLogic.questions;
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 95.w,
-              height: 45.h,
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: questions.length,
-                onPageChanged: (index) {
-                  setState(() {
-                    nitrutionLogic.currentPageIndex = index;
-                  });
-                },
-                itemBuilder: (context, index) {
-                  return buildQuestionCard(questions[index]);
-                },
-              ),
-            ),
-            const SizedBox(height: 16),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                for (String answer in questions[nitrutionLogic.currentPageIndex]
-                    ['answers'])
-                  AnswerButton(
-                      onPressed: () {},
-                      currentPageIndex: nitrutionLogic.currentPageIndex,
-                      questions: questions,
-                      pageController: _pageController,
-                      answer: answer),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+    List<String> genderOptions = ['Erkek', 'Kadın'];
+    String selectedGender = 'Erkek';
+    ActivityLevel selectedActivityLevel = ActivityLevel.sedentary;
 
-  Widget buildQuestionCard(Map<String, dynamic> question) {
-    return Card(
-      elevation: 4,
-      child: Padding(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('BMR Hesaplama'),
+      ),
+      body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              question['question'],
-              textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 18),
+            TextField(
+              controller: ageController,
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(labelText: 'Yaş'),
             ),
+            const SizedBox(height: 16.0),
+            DropdownButtonFormField(
+              value: selectedGender,
+              items: genderOptions.map((gender) {
+                return DropdownMenuItem(
+                  value: gender,
+                  child: Text(gender),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedGender = value.toString();
+                });
+              },
+              decoration: const InputDecoration(labelText: 'Cinsiyet'),
+            ),
+            const SizedBox(height: 16.0),
+            TextField(
+              controller: weightController,
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Kilo'),
+            ),
+            const SizedBox(height: 16.0),
+            TextField(
+              controller: heightController,
+              keyboardType:
+                  const TextInputType.numberWithOptions(decimal: true),
+              decoration: const InputDecoration(labelText: 'Boy'),
+            ),
+            const SizedBox(height: 32.0),
+            DropdownButton(
+              value: selectedActivityLevel,
+              items: ActivityLevel.values.map((level) {
+                return DropdownMenuItem(
+                  value: level,
+                  child: Text(NutritionFunc().activityLevelToString(level)),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedActivityLevel = value as ActivityLevel;
+                });
+              },
+            ),
+            ElevatedButton(
+                onPressed: () async {
+                  int age = int.tryParse(ageController.text) ?? 0;
+                  double weight = double.tryParse(weightController.text) ?? 0.0;
+                  double height = double.tryParse(heightController.text) ?? 0.0;
+                  final bmr = NutritionFunc().calculateBMR(UserInfo(
+                      age: age,
+                      gender: selectedGender == 'Kadın' ? 'female' : 'male',
+                      weight: weight,
+                      height: height));
+
+                  final dailyCalories = NutritionFunc()
+                      .calculateDailyCalories(bmr, selectedActivityLevel);
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) => SizedBox(
+                          height: 60.h,
+                          width: 100.w,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                'BMR sonucunuz: ${bmr.toString()}',
+                                style: context.general.textTheme.bodyLarge,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: Text(
+                                  'Gunluk Kalori Ihtiyaciniz: ${dailyCalories.toString()} kcal',
+                                  style: context.general.textTheme.bodyLarge,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: Text(
+                                  'Gunluk Karbonhidrat Ihtiyaciniz\n ${(dailyCalories * 0.53).toString()} kcal/ ${(dailyCalories * 0.53 / 4).toString()} gr.',
+                                  style: context.general.textTheme.bodyLarge,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 8.0),
+                                child: Text(
+                                  'Gunluk Yağ Ihtiyaciniz\n ${(dailyCalories * 0.25).toString()} kcal/ ${(dailyCalories * 0.25 / 9).toString()} gr.',
+                                  style: context.general.textTheme.bodyLarge,
+                                ),
+                              ),
+                              Text(
+                                'Gunluk Protein Ihtiyaciniz\n ${(dailyCalories * 0.22).toString()} kcal/ ${(dailyCalories * 0.22 / 4).toString()} gr.',
+                                style: context.general.textTheme.bodyLarge,
+                              ),
+                            ],
+                          )));
+                },
+                child: const Text('Hesapla')),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class AnswerButton extends StatefulWidget {
-  final int currentPageIndex;
-  final List<Map<String, dynamic>> questions;
-  final PageController pageController;
-  final String answer;
-  final Function() onPressed;
-
-  const AnswerButton(
-      {super.key,
-      required this.currentPageIndex,
-      required this.questions,
-      required this.pageController,
-      required this.answer,
-      required this.onPressed});
-
-  @override
-  State<AnswerButton> createState() => _AnswerButtonState();
-}
-
-class _AnswerButtonState extends State<AnswerButton> {
-  late final NitrutionLogic nitrutionLogic;
-
-  @override
-  void initState() {
-    super.initState();
-    nitrutionLogic = NitrutionLogic();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 95.w,
-      child: ElevatedButton(
-        onPressed: () {
-          nitrutionLogic.currentPageIndex++;
-          widget.onPressed.call();
-
-          if (widget.currentPageIndex < widget.questions.length - 1) {
-            widget.pageController.nextPage(
-                duration: const Duration(milliseconds: 500),
-                curve: Curves.easeInOut);
-          }
-        },
-        child: Text(widget.answer),
       ),
     );
   }

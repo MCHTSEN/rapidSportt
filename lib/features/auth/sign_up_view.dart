@@ -3,8 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:kartal/kartal.dart';
 import 'package:myapp/features/auth/create_news_logic.dart'; // Eklediğimiz firestore paketi
 import 'package:myapp/features/home/home_view.dart';
+import 'package:myapp/product/enums/firebase_collection.dart';
 import 'package:myapp/product/models/user_model.dart';
 import 'package:myapp/product/services/firebase_service.dart';
 import 'package:myapp/providers/firebase_providers.dart';
@@ -21,7 +23,10 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController surnameController = TextEditingController();
   final TextEditingController numberController = TextEditingController();
+  final TextEditingController birthDateController = TextEditingController();
+
   String selectedOption = 'Öğrenci';
+  String selectedBranch = 'Fitnes';
   bool changeLoading = false;
   @override
   void initState() {
@@ -40,6 +45,18 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
   @override
   Widget build(BuildContext context) {
     final List<String> type = ['Eğitmen', 'Öğrenci'];
+    final List<String> branch = [
+      'Futbol',
+      'Fitnes',
+      'Basketbol',
+      'Voleybol',
+      'Tenis',
+      'Yüzme',
+      'Jimnastik',
+      'Atletizm',
+      'Boks',
+      'Masa Tenisi',
+    ];
     DateTime? selectedDate;
 
     return Scaffold(
@@ -61,30 +78,23 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                     _emptyBox(context),
                     _numberTextField(),
                     _emptyBox(context),
-                    ElevatedButton.icon(
-                      onPressed: () async {
-                        final DateTime? pickedDate = await showDatePicker(
-                          context: context,
-                          firstDate: DateTime(1950),
-                          lastDate: DateTime(2023),
-                        );
-
-                        setState(() {
-                          selectedDate = pickedDate;
-                          print(selectedDate);
-                        });
-                      },
-                      icon: const Icon(Icons.date_range),
-                      label: const Text('Doğum Tarihinizi Seçiniz'),
+                    TextField(
+                      controller: birthDateController,
+                      decoration: const InputDecoration(
+                        labelText: 'Dogum Tarihinizi Giriniz',
+                        hintText: '10/02/1998',
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                        ),
+                      ),
                     ),
-                    if (selectedDate != null) const Text('data'),
                     _emptyBox(context),
                     DropdownButtonFormField(
                       value: selectedOption,
                       isExpanded: true,
                       onChanged: (newValue) {
                         setState(() {
-                          selectedOption = newValue as String;
+                          selectedOption = newValue ?? '';
                         });
                       },
                       items: type
@@ -94,6 +104,34 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                               ))
                           .toList(),
                     ),
+                    if (selectedOption == 'Eğitmen')
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0),
+                            child: Text(
+                              'Alan seciniz',
+                              style: context.general.textTheme.bodyLarge,
+                            ),
+                          ),
+                          DropdownButtonFormField(
+                            value: selectedBranch,
+                            isExpanded: true,
+                            onChanged: (newValue) {
+                              setState(() {
+                                selectedBranch = newValue ?? '';
+                              });
+                            },
+                            items: branch
+                                .map((e) => DropdownMenuItem(
+                                      value: e,
+                                      child: Text(e),
+                                    ))
+                                .toList(),
+                          ),
+                        ],
+                      ),
                     _emptyBox(context),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,9 +164,13 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                             name: nameController.text,
                             surname: surnameController.text,
                             phone: numberController.text,
-                            birthDate: selectedDate.toString(),
+                            birthDate: birthDateController.text,
                             email: FirebaseAuth.instance.currentUser?.email,
-                            uid: FirebaseAuth.instance.currentUser?.uid);
+                            uid: FirebaseAuth.instance.currentUser?.uid,
+                            type: selectedOption,
+                            branch: selectedBranch,
+                            lat: '0',
+                            lng: '0');
 
                         ref.read(firebaseServiceProvider).saveUserInfo(
                             userModel,
@@ -136,9 +178,19 @@ class _SingUpViewState extends ConsumerState<SingUpView> {
                                 .read(firebaseServiceProvider)
                                 .auth
                                 .currentUser!
-                                .uid);
+                                .uid,
+                            FirebaseColletions.users.name);
 
-                        Navigator.push(
+                        ref.read(firebaseServiceProvider).saveUserLocation(
+                            const GeoPoint(0, 0),
+                            ref
+                                .read(firebaseServiceProvider)
+                                .auth
+                                .currentUser!
+                                .uid,
+                            FirebaseColletions.location.name);
+
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const HomeView()));

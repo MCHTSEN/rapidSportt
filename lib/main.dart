@@ -1,8 +1,10 @@
+import 'package:booking_calendar/booking_calendar.dart';
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:myapp/features/auth/authentication_view.dart';
 import 'package:myapp/features/auth/sign_up_view.dart';
+import 'package:myapp/features/booking/booking.dart';
 import 'package:myapp/features/find_trainer/find_trainer_view.dart';
 import 'package:myapp/features/home/home_view.dart';
 import 'package:myapp/features/nitrution/nitrution_view.dart';
