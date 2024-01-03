@@ -106,13 +106,6 @@ class _HomeViewState extends ConsumerState<HomeView> {
     return (user == null && ref.watch(firebaseServiceProvider).isLoading)
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
-            floatingActionButton: FloatingActionButton(onPressed: () {
-              final response = ref
-                  .watch(firebaseServiceProvider)
-                  .getBookings(user!.uid ?? '');
-
-              print(response);
-            }),
             appBar: AppBar(
               title: Text(user?.name ?? ''),
               actions: [
