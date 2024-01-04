@@ -12,6 +12,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myapp/features/booking/booking.dart';
 import 'package:myapp/features/find_trainer/map_viewmodel.dart';
 import 'package:myapp/features/home/home_view.dart';
+import 'package:myapp/product/models/sport_booking.dart';
 import 'package:myapp/product/models/user_model.dart';
 import 'package:myapp/product/services/firebase_service.dart';
 import 'package:myapp/providers/firebase_providers.dart';
@@ -32,49 +33,46 @@ class FindTrainerView extends ConsumerStatefulWidget {
 
 class MapSampleState extends ConsumerState<FindTrainerView> {
   late final MapViewmodel _mapViewmodel;
-  double rate = 0.0;
   final PageController _pageController = PageController(viewportFraction: 0.8);
-
   GoogleMapController? _controller;
+
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
-    _initializeRate();
+    _mapViewmodel = MapViewmodel();
   }
 
   @override
   Future<void> didChangeDependencies() async {
     super.didChangeDependencies();
-    _mapViewmodel = MapViewmodel();
-    final response = _mapViewmodel.fetchTutors();
-    // inspect(response);
-  }
-
-  Future<void> _initializeRate() async {
-    rate = await ref
-        .watch(firebaseServiceProvider)
-        .getAverageRating(ref.watch(authProvider).currentUser!.uid);
-    setState(() {}); // setState çağırarak yeniden çizimi sağla
+    await _mapViewmodel.fetchTutors();
+    await _mapViewmodel.getRatingList(ref);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Antrenor Arayin'),
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => const HomeView()));
-            },
-            icon: const Icon(Icons.chevron_left)),
-      ),
-      backgroundColor: Colors.grey,
-      body: Observer(builder: (_) {
-        return _mapViewmodel.isLoading
-            ? const Center(child: CircularProgressIndicator.adaptive())
-            : Stack(
+    return _mapViewmodel.isLoading
+        ? const Center(child: CircularProgressIndicator.adaptive())
+        : Scaffold(
+            // floatingActionButton: FloatingActionButton(onPressed: () {
+            //   _mapViewmodel.getRatingList(ref);
+            // }),
+            appBar: AppBar(
+              centerTitle: true,
+              title: const Text('Antrenor Arayin'),
+              leading: IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeView()));
+                  },
+                  icon: const Icon(Icons.chevron_left)),
+            ),
+            backgroundColor: Colors.grey,
+            body: Observer(builder: (_) {
+              return Stack(
                 children: [
                   _googleMaps(),
                   Positioned(
@@ -88,7 +86,7 @@ class MapSampleState extends ConsumerState<FindTrainerView> {
                           _mapViewmodel.changeIndex(index);
                           _controller!.animateCamera(
                               CameraUpdate.newCameraPosition(CameraPosition(
-                                  zoom: 14,
+                                  zoom: 10.3,
                                   target:
                                       _mapViewmodel.tutors[index].latlong)));
                         },
@@ -103,7 +101,70 @@ class MapSampleState extends ConsumerState<FindTrainerView> {
                               padding: const EdgeInsets.all(16.0),
                               child: Column(
                                 children: [
-                                  _tutorInfos(index),
+                                  Row(
+                                    children: [
+                                      ClipOval(
+                                        child: Image.network(
+                                          'https://picsum.photos/200',
+                                          height: 50,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.all(8.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              _mapViewmodel
+                                                      .tutors[index].name ??
+                                                  '',
+                                              style: const TextStyle(
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            Text(
+                                              _mapViewmodel
+                                                      .tutors[index].branch ??
+                                                  '',
+                                              style: const TextStyle(
+                                                fontSize: 14.0,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const Spacer(),
+                                      _mapViewmodel.isRatingsEmpty
+                                          ? const CircularProgressIndicator()
+                                          : Column(
+                                              children: [
+                                                Text(_mapViewmodel
+                                                    .averageRatings[index]
+                                                    .toStringAsFixed(2)),
+                                                RatingBar.builder(
+                                                  initialRating: _mapViewmodel
+                                                      .averageRatings[index],
+                                                  minRating: 1,
+                                                  itemSize: 20,
+                                                  direction: Axis.horizontal,
+                                                  itemCount: 5,
+                                                  ignoreGestures: true,
+                                                  itemBuilder: (context, _) =>
+                                                      const Icon(
+                                                    Icons.star,
+                                                    color: Colors.amber,
+                                                    size: 10,
+                                                  ),
+                                                  onRatingUpdate: (rating) {
+                                                    print(rating);
+                                                  },
+                                                ),
+                                              ],
+                                            )
+                                    ],
+                                  ),
                                   _randevuAl(context, index)
                                 ],
                               ),
@@ -113,8 +174,8 @@ class MapSampleState extends ConsumerState<FindTrainerView> {
                   ),
                 ],
               );
-      }),
-    );
+            }),
+          );
   }
 
   ElevatedButton _randevuAl(BuildContext context, int index) {
@@ -219,64 +280,88 @@ class MapSampleState extends ConsumerState<FindTrainerView> {
         });
   }
 
-  Row _tutorInfos(int index) {
-    return Row(
-      children: [
-        ClipOval(
-          child: Image.network(
-            'https://picsum.photos/200',
-            height: 50,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                _mapViewmodel.tutors[index].name ?? '',
-                style: const TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                _mapViewmodel.tutors[index].branch ?? '',
-                style: const TextStyle(
-                  fontSize: 14.0,
-                ),
-              ),
-            ],
-          ),
-        ),
-        const Spacer(),
-        // _ratingBar()
-      ],
-    );
-  }
-
-  // Column _ratingBar() {
-  //   return Column(
+  // Row _tutorInfos(int index) {
+  //   return Row(
   //     children: [
-  //       Text(rate.toStringAsFixed(2)),
-  //       RatingBar.builder(
-  //         initialRating: 4.6,
-  //         minRating: 1,
-  //         itemSize: 20,
-  //         direction: Axis.horizontal,
-  //         itemCount: 5,
-  //         ignoreGestures: true,
-  //         itemBuilder: (context, _) => const Icon(
-  //           Icons.star,
-  //           color: Colors.amber,
-  //           size: 10,
+  //       ClipOval(
+  //         child: Image.network(
+  //           'https://picsum.photos/200',
+  //           height: 50,
   //         ),
-  //         onRatingUpdate: (rating) {
-  //           print(rating);
-  //         },
   //       ),
+  //       Padding(
+  //         padding: const EdgeInsets.all(8.0),
+  //         child: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(
+  //               _mapViewmodel.tutors[index].name ?? '',
+  //               style: const TextStyle(
+  //                 fontSize: 18.0,
+  //                 fontWeight: FontWeight.bold,
+  //               ),
+  //             ),
+  //             Text(
+  //               _mapViewmodel.tutors[index].branch ?? '',
+  //               style: const TextStyle(
+  //                 fontSize: 14.0,
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //       ),
+  //       const Spacer(),
+  //       uidList.isEmpty
+  //           ? const CircularProgressIndicator()
+  //           : Column(
+  //               children: [
+  //                 Text(uidList[index].toStringAsFixed(2)),
+  //                 RatingBar.builder(
+  //                   initialRating: uidList[index],
+  //                   minRating: 1,
+  //                   itemSize: 20,
+  //                   direction: Axis.horizontal,
+  //                   itemCount: 5,
+  //                   ignoreGestures: true,
+  //                   itemBuilder: (context, _) => const Icon(
+  //                     Icons.star,
+  //                     color: Colors.amber,
+  //                     size: 10,
+  //                   ),
+  //                   onRatingUpdate: (rating) {
+  //                     print(rating);
+  //                   },
+  //                 ),
+  //               ],
+  //             )
   //     ],
   //   );
+  // }
+
+  // Widget _ratingBar(int index) {
+  //   return uidList.isEmpty
+  //       ? const CircularProgressIndicator()
+  //       : Column(
+  //           children: [
+  //             Text(uidList[index].toStringAsFixed(2)),
+  //             RatingBar.builder(
+  //               initialRating: uidList[index],
+  //               minRating: 1,
+  //               itemSize: 20,
+  //               direction: Axis.horizontal,
+  //               itemCount: 5,
+  //               ignoreGestures: true,
+  //               itemBuilder: (context, _) => const Icon(
+  //                 Icons.star,
+  //                 color: Colors.amber,
+  //                 size: 10,
+  //               ),
+  //               onRatingUpdate: (rating) {
+  //                 print(rating);
+  //               },
+  //             ),
+  //           ],
+  //         );
   // }
 
   GoogleMap _googleMaps() {
@@ -293,8 +378,8 @@ class MapSampleState extends ConsumerState<FindTrainerView> {
       )),
       mapType: MapType.normal,
       initialCameraPosition: CameraPosition(
-        target: _mapViewmodel.tutors.last.latlong,
-        zoom: 14.4746,
+        target: _mapViewmodel.tutors.first.latlong,
+        zoom: 10.2746,
       ),
     );
   }

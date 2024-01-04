@@ -9,6 +9,14 @@ part of 'map_viewmodel.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$MapViewmodel on MapViewmodelBase, Store {
+  Computed<bool>? _$isRatingsEmptyComputed;
+
+  @override
+  bool get isRatingsEmpty =>
+      (_$isRatingsEmptyComputed ??= Computed<bool>(() => super.isRatingsEmpty,
+              name: 'MapViewmodelBase.isRatingsEmpty'))
+          .value;
+
   late final _$selectedIndexAtom =
       Atom(name: 'MapViewmodelBase.selectedIndex', context: context);
 
@@ -57,6 +65,30 @@ mixin _$MapViewmodel on MapViewmodelBase, Store {
     });
   }
 
+  late final _$averageRatingsAtom =
+      Atom(name: 'MapViewmodelBase.averageRatings', context: context);
+
+  @override
+  List<double> get averageRatings {
+    _$averageRatingsAtom.reportRead();
+    return super.averageRatings;
+  }
+
+  @override
+  set averageRatings(List<double> value) {
+    _$averageRatingsAtom.reportWrite(value, super.averageRatings, () {
+      super.averageRatings = value;
+    });
+  }
+
+  late final _$getRatingListAsyncAction =
+      AsyncAction('MapViewmodelBase.getRatingList', context: context);
+
+  @override
+  Future<List<double>> getRatingList(WidgetRef ref) {
+    return _$getRatingListAsyncAction.run(() => super.getRatingList(ref));
+  }
+
   late final _$fetchTutorsAsyncAction =
       AsyncAction('MapViewmodelBase.fetchTutors', context: context);
 
@@ -95,7 +127,9 @@ mixin _$MapViewmodel on MapViewmodelBase, Store {
     return '''
 selectedIndex: ${selectedIndex},
 tutors: ${tutors},
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+averageRatings: ${averageRatings},
+isRatingsEmpty: ${isRatingsEmpty}
     ''';
   }
 }

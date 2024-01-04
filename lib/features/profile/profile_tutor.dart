@@ -45,7 +45,7 @@ class _ProfileTutorState extends ConsumerState<ProfileTutor> {
     rate = await ref
         .watch(firebaseServiceProvider)
         .getAverageRating(ref.watch(authProvider).currentUser!.uid);
-    setState(() {}); 
+    setState(() {});
   }
 
   @override
@@ -105,7 +105,7 @@ class _ProfileTutorState extends ConsumerState<ProfileTutor> {
             style: TextStyle(fontSize: 16),
           ),
           rate == 0.0
-              ? const CircularProgressIndicator()
+              ? const SizedBox.shrink()
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

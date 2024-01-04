@@ -168,7 +168,7 @@ class FirebaseService {
           Map<String,
               dynamic>> documentSnapshot = await FirebaseFirestore.instance
           .collection(
-              'ratings') // Bu 'ratings' koleksiyon adını ihtiyacınıza göre değiştirin
+              'ratings') 
           .doc(uid)
           .collection('ratings')
           .get();

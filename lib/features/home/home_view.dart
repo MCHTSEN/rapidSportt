@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:kartal/kartal.dart';
+import 'package:myapp/features/auth/authentication_view.dart';
 import 'package:myapp/features/auth/sign_up_view.dart';
 import 'package:myapp/features/find_trainer/find_trainer_view.dart';
 import 'package:myapp/features/nitrution/nitrution_view.dart';
@@ -107,6 +108,17 @@ class _HomeViewState extends ConsumerState<HomeView> {
         ? const Center(child: CircularProgressIndicator())
         : Scaffold(
             appBar: AppBar(
+              leading: Padding(
+                  padding: const EdgeInsets.only(right: 10.0),
+                  child: IconButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const AuthenticationView()));
+                      },
+                      icon: const Icon(Icons.exit_to_app))),
               title: Text(user?.name ?? ''),
               actions: [
                 Padding(

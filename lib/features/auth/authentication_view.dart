@@ -70,11 +70,13 @@ class _AuthenticationViewState extends ConsumerState<AuthenticationView> {
           AuthStateChangeAction<SignedIn>((context, state) {
             if (state.user != null) {
               checkUserLoggedIn(state.user);
-              context.route.navigateToPage(const HomeView());
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const HomeView()));
             }
           }),
           AuthStateChangeAction<SigningUp>((context, state) {
-            context.route.navigateToPage(const SingUpView());
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => const SingUpView()));
           }),
         ],
         child: Column(
