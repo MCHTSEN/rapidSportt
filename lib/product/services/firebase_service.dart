@@ -14,6 +14,11 @@ final firebaseServiceProvider = Provider((ref) => FirebaseService(
     firebaseFirestore: ref.read(firestoreProvider),
     firebaseAuth: ref.read(authProvider)));
 
+/// `FirebaseService` is a class that provides various methods for interacting with the Firebase
+/// Firestore and Firebase Authentication services. It includes methods for fetching user data,
+/// saving user information, saving user location, saving tutor ratings, updating user location,
+/// retrieving sport bookings, and more. The class also manages a `isLoading` flag to track the
+/// loading state of data operations.
 class FirebaseService {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
@@ -34,6 +39,9 @@ class FirebaseService {
     isLoading = !isLoading;
   }
 
+  /// The `fetchUsers()` function is retrieving a list of users from the Firestore database. It queries
+  /// the "users" collection and retrieves the user data using the `get()` method. The retrieved user
+  /// data is then stored in a list called `values`.
   Future<void> fetchUsers() async {
     _changeLoading();
     final usersCollectionReference = _firestore.collection('users');
@@ -50,6 +58,10 @@ class FirebaseService {
     }
   }
 
+  /// The `fetchUserRatings` function is retrieving a user's ratings from the Firestore database. It
+  /// takes a `uid` parameter, which is the unique identifier of the user, and queries the "ratings"
+  /// collection to find ratings associated with that user. The function then retrieves the ratings data
+  /// and prints it using the `inspect` function.
   Future<void> fetchUserRatings(String uid) async {
     _changeLoading();
     final usersCollectionReference = _firestore.collection('ratings');
@@ -63,14 +75,24 @@ class FirebaseService {
     }
   }
 
+  /// The `saveUserInfo` function is used to save user information in the Firestore database. It takes
+  /// three parameters: `userModel` (an instance of the `UserModel` class representing the user's data),
+  /// `uid` (the unique identifier of the user), and `collectionPath` (the path to the collection where
+  /// the user's information will be saved).
   saveUserInfo(UserModel userModel, String uid, String collectionPath) {
     _firestore.collection(collectionPath).doc(uid).set(userModel.toJson());
   }
 
+  /// The `saveUserLocation` function is used to save the location of a user in the Firestore database.
+  /// It takes three parameters: `geo` (a `GeoPoint` object representing the latitude and longitude),
+  /// `uid` (the unique identifier of the user), and `collectionPath` (the path to the collection where
+  /// the user's location will be saved).
   saveUserLocation(GeoPoint geo, String uid, String collectionPath) {
     _firestore.collection(collectionPath).doc(uid).set({'geo': geo});
   }
 
+  /// The `saveTutorRating` function is used to save a tutor's rating in the Firestore database. It takes
+  /// two parameters: `rate` (the rating value) and `uid` (the unique identifier of the tutor).
   Future<bool?> saveTutorRating(
       {required double rate, required String uid}) async {
     await _firestore
@@ -83,6 +105,11 @@ class FirebaseService {
     return null;
   }
 
+  /// The `updateUserLocation` function is used to update the location of a user in the Firestore
+  /// database. It takes three parameters: `lat` (latitude), `lng` (longitude), and `uid` (user ID). It
+  /// updates the document with the specified `uid` in the "users" collection by setting the "lat" and
+  /// "lng" fields to the provided latitude and longitude values, respectively. This function is useful
+  /// when a user's location changes and needs to be updated in the database.
   updateUserLocation(String lat, String lng, String uid) {
     _firestore
         .collection(FirebaseColletions.users.name)
@@ -90,7 +117,10 @@ class FirebaseService {
         .update({'lat': lat, 'lng': lng});
   }
 
-  // Future<List<SportBooking>>
+  /// The `getBookings` function is retrieving a list of sport bookings for a
+  /// specific user from the Firestore database. It takes a `uid` parameter,
+  /// which is the unique identifier of the user, and returns a
+  /// `Future<List<SportBooking>>` containing the bookings.
   Future<List<SportBooking>> getBookings(String uid) async {
     _changeLoading();
     try {
@@ -115,6 +145,16 @@ class FirebaseService {
     }
   }
 
+  /// function that retrieves a user from the Firestore database based on their UID.
+  /// The `getUserByUid` function is
+  /// retrieving a user from the
+  /// Firestore database based on their
+  /// UID. It takes a `uid` parameter,
+  /// which is the unique identifier of
+  /// the user, and returns a
+  /// `Future<QuerySnapshot<UserModel
+  /// Function(Map<String, dynamic>)>>`
+  /// containing the user data.
   Future<QuerySnapshot<UserModel Function(Map<String, dynamic>)>?> getUserByUid(
       String uid) async {
     _changeLoading();
@@ -140,6 +180,10 @@ class FirebaseService {
     }
   }
 
+  /// The `getRatingsData` function is retrieving ratings data for a specific user from the Firestore
+  /// database. It takes a `uid` parameter, which is the unique identifier of the user, and queries the
+  /// "ratings" collection to find ratings associated with that user. The function then retrieves the
+  /// ratings data and prints it using the `inspect` function.
   getRatingsData(String uid) async {
     try {
       QuerySnapshot<
@@ -162,16 +206,16 @@ class FirebaseService {
     }
   }
 
+  /// The `getAverageRating` function is retrieving the average rating for a specific user from the
+  /// Firestore database. It takes a `uid` parameter, which is the unique identifier of the user.
   Future<double> getAverageRating(String uid) async {
     try {
-      QuerySnapshot<
-          Map<String,
-              dynamic>> documentSnapshot = await FirebaseFirestore.instance
-          .collection(
-              'ratings') 
-          .doc(uid)
-          .collection('ratings')
-          .get();
+      QuerySnapshot<Map<String, dynamic>> documentSnapshot =
+          await FirebaseFirestore.instance
+              .collection('ratings')
+              .doc(uid)
+              .collection('ratings')
+              .get();
 
       if (documentSnapshot.docs.isNotEmpty) {
         final values = documentSnapshot.docs.map((e) => e.data()).toList();
